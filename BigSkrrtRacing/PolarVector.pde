@@ -7,6 +7,15 @@ class PolarVector {
       angle = a;
   }
   
+  double getX() {
+      return magnitude*Math.cos(angle);
+  }
+  
+  double getY() {
+      return magnitude*Math.sin(angle);
+  }
+  
+  
   
   
 }
