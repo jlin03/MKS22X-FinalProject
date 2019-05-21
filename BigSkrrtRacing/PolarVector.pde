@@ -14,7 +14,8 @@ class PolarVector {
   double getY() {
       return magnitude*Math.sin(angle);
   }
-  PolarVector sum(PolarVector one, PolarVector two) {
+  
+  static PolarVector sum(PolarVector one, PolarVector two) {
     double sumX = one.getX()+two.getX();
     double sumY = one.getY()+two.getY();
     double hypotenuse = Math.sqrt(Math.pow(sumX,2) + Math.pow(sumY,2));
