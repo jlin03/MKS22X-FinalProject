@@ -16,7 +16,7 @@ class PolarVector {
   }
   PolarVector sum(PolarVector one, PolarVector two) {
     double sumX = one.getX()+two.getX();
-    double sumY = one.getY()+two.getY():
+    double sumY = one.getY()+two.getY();
     double hypotenuse = sqrt(Math.pow(sum,2) + Math.pow(sumY,2));
     double ang = Math.atan(sumY,sumX);
     return new PolarVector(hypotenuse,ang);
