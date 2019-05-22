@@ -1,4 +1,4 @@
-class PolarVector {
+static class PolarVector {
   double magnitude;
   double angle;
   
@@ -15,17 +15,29 @@ class PolarVector {
       return magnitude*Math.sin(angle);
   }
   
+  double getMagnitude() {
+     return magnitude; 
+  }
+  
+  double getAngle() {
+     return angle; 
+  }
+}
+  
+static class PolarOperations {
+  
   static PolarVector sum(PolarVector one, PolarVector two) {
     double sumX = one.getX()+two.getX();
     double sumY = one.getY()+two.getY();
-    double hypotenuse = Math.sqrt(Math.pow(sumX,2) + Math.pow(sumY,2));
+    double mag = Math.sqrt(Math.pow(sumX,2) + Math.pow(sumY,2));
     double ang = Math.atan(sumY/sumX);
-    return new PolarVector(hypotenuse,ang);
+    PolarVector resultant = new PolarVector(mag,ang);
+    return resultant;
   }
-    
-    
-  
-  
-  
   
 }
+    
+    
+  
+  
+  
