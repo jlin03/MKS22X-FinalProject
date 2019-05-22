@@ -5,13 +5,26 @@ public class Tile {
     x = xcor;
     y = ycor;
   }
-  public Tile(double xcor,double ycor, double sF, double kF, String materrial, String shaape) {
+  public Tile(double xcor,double ycor, String materrial, String shaape) {
     x = xcor;
     y = ycor;
-    staticFriction = sF;
-    kineticFriction = kF;
     material = materrial;
     shape = shaape;
+    if (material.equals("road")) {
+      staticFriction = 100;
+      kineticFriction = 100;
+    }
+    else {
+      staticFriction = 0;
+      kineticFriction = 0;
+    }
   }
+  public void setMaterial (String m) {
+    material = m;
+  }
+  public void setShape (String s) {
+    shape = s;
+  }
+  
   
 }
