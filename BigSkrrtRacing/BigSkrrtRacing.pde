@@ -8,10 +8,10 @@ void setup() {
   println(v3.getX() + " " + v3.getY());
   println(v4.getX() + " " + v4.getY());
   
-  PolarVector v5 = PolarVector.sum(v1,v2);
-  PolarVector v6 = PolarVector.sum(v3,v4);
-  PolarVector v7 = PolarVector.sum(v1,v3);
-  PolarVector v8 = PolarVector.sum(v2,v4);
+  PolarVector v5 = PolarOperations.sum(v1,v2);
+  PolarVector v6 = PolarOperations.sum(v3,v4);
+  PolarVector v7 = PolarOperations.sum(v1,v3);
+  PolarVector v8 = PolarOperations.sum(v2,v4);
   
   println(v5.getX() + " " + v5.getY());
   println(v6.getX() + " " + v6.getY());
