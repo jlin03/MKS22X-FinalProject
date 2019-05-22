@@ -35,6 +35,10 @@ static class PolarOperations {
     return resultant;
   }
   
+  static PolarVector coordToPolar(double x, double y) {
+    return new PolarVector(Math.sqrt(Math.pow(x,2) + Math.pow(y,2)),Math.atan(y/x));
+  }
+  
 }
     
     
