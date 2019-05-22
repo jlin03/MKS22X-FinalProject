@@ -25,6 +25,4 @@ public class Tile {
   public void setShape (String s) {
     shape = s;
   }
-  
-  
 }
