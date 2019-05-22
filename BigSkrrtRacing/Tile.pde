@@ -1,17 +1,22 @@
 public class Tile {
-  private String material,shape;
-  private double x,y,staticFriction,kineticFriction;
+  public String material,shape;
+  public double x,y,staticFriction,kineticFriction;
   public Tile(double xcor,double ycor) {
     x = xcor;
     y = ycor;
   }
-  public Tile(double xcor,double ycor, double sF, double kF, String materrial, String shaape) {
-    x = xcor;
-    y = ycor;
-    staticFriction = sF;
-    kineticFriction = kF;
-    material = materrial;
-    shape = shaape;
+  public void setMaterial (String m) {
+    material = m;
+    if (material.equals("road")) {
+      staticFriction = 100;
+      kineticFriction = 100;
+    }
+    else {
+      staticFriction = 0;
+      kineticFriction = 0;
+    }
   }
-  
+  public void setShape (String s) {
+    shape = s;
+  }
 }
