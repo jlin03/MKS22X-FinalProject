@@ -1,6 +1,8 @@
+Car test;
+
 void setup() {
   size(800,800);
-  Car test = new Car(0,0,0);
+  test = new Car(0,0,0);
   
   
 }
