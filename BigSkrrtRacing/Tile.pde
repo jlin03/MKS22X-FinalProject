@@ -1,7 +1,7 @@
 public class Tile {
   public String material,shape;
-  public double x,y,staticFriction,kineticFriction;
-  public Tile(double xcor,double ycor) {
+  public float x,y,staticFriction,kineticFriction;
+  public Tile(float xcor,float ycor) {
     x = xcor;
     y = ycor;
   }
