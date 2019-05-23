@@ -19,4 +19,9 @@ public class Tile {
   public void setShape (String s) {
     shape = s;
   }
+  public void display() {
+    if (shape.equals("square")) {
+      if (material.equals("road")) {
+        fill(0,0,0);
+      
 }
