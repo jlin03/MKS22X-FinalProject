@@ -18,10 +18,6 @@ class Car {
   void update(float s, float k) {
     driftForce.setMag(driftForce.mag()-k);    // kinetic friction for drifting
     driveForce.setMag(driveForce.mag()-s);    // static friction for driving
-    if(PVector.angleBetween(PVector.add(accel,vel),vel) > 90) { // if vel will be 0 or less, don't apply friction
-      driftForce.setMag(0);
-      driveForce.setMag(0);
-    }
     
     accel.add(driftForce);
     accel.add(driveForce);
