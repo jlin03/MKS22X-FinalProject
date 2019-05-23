@@ -23,9 +23,12 @@ public class Tile {
     if (shape.equals("square")) {
       if (material.equals("road")) {
         fill(0,0,0);
-        rect(x,y,20,20);
+        rect(x*20,y*20,20.0,20.0);
+      }
+      else {
+        fill(0,255,0);
+        rect(x*20,y*20,20.0,20.0);
       }
     }
-  }
-      
+  }   
 }
