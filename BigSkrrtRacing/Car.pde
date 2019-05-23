@@ -30,7 +30,10 @@ class Car {
     
     pos.add(vel);
     
-    
+  }
+  
+  void drive(float f) {
+     driveForce.setMag(driveForce.mag()+f);
   }
   
   
