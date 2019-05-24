@@ -3,39 +3,45 @@ class Car {
   PVector pos;
   PVector vel;
   PVector accel;
-  PVector driftForce;
-  PVector driveForce;
-  
+  PVector force;
+  boolean driving;
+
   public Car(float a, float x, float y) {
-     angle = a;
-     pos = new PVector(x,y);
-     vel = new PVector(0,0);
-     accel = new PVector(0,0);
-     driftForce = new PVector(0,0);
-     driveForce = new PVector(0,0);
+    angle = a;
+    pos = new PVector(x, y);
+    vel = new PVector(0, 0);
+    accel = new PVector(0, 0);
+    force = new PVector(0, 0.01);
+    driving = false;
   }
-  
+
   void update(float s, float k) {
-    driftForce.setMag(driftForce.mag()-k);    // kinetic friction for drifting
-    driveForce.setMag(driveForce.mag()-s);    // static friction for driving
-    
-    accel.add(driftForce);
-    accel.add(driveForce);
+    accel.add(force);
+    accel.setMag(Math.max(0,(float)(accel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
     
     vel.add(accel);
-    
+    if(vel.mag() > 0) {
+      vel.setMag(Math.max(0,(float)(vel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
+    }
+
     pos.add(vel);
-    
+
   }
-  
-  void drive(float f) {
-     driveForce.setMag(driveForce.mag()+f);
+
+void drive(float f, boolean forwards) {
+  if (forwards) {
+    force.rotate(angle-force.heading());
   }
-  
-  
-  
-  
-  
-  
-  
+  else {
+    force.rotate(angle-force.heading()+PI);
+  }
+  force.setMag(f);
+}
+
+
+
+
+
+
+
 }
