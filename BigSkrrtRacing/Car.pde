@@ -20,15 +20,16 @@ class Car {
     accel.setMag(Math.max(0,(float)(accel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
     
     vel.add(accel);
-    if(vel.mag() > 0) {
+    if(vel.mag() > 0 && !driving) {
       vel.setMag(Math.max(0,(float)(vel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
     }
 
     pos.add(vel);
-
+    driving=false;
   }
 
 void drive(float f, boolean forwards) {
+  driving=true;
   if (forwards) {
     force.rotate(angle-force.heading());
   }
