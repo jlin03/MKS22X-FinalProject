@@ -15,28 +15,26 @@ class Car {
     driving = false;
   }
 
-  void update(float s, float k) {
+  void update(float k) {
+    accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     accel.add(force);
-    accel.setMag(Math.max(0,(float)(accel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
     
-    vel.add(accel);
-    if(vel.mag() > 0 && !driving) {
-      vel.setMag(Math.max(0,(float)(vel.mag()-Math.sqrt(Math.pow(s, 2)+Math.pow(k, 2)))));
+    if(vel.mag() > 0 && accel.mag() < 0.05) {
+      vel.add(PVector.fromAngle(vel.heading()+PI,vel).setMag(k));
     }
+    vel.add(accel);
 
     pos.add(vel);
-    driving=false;
   }
 
-void drive(float f, boolean forwards) {
-  driving=true;
+void drive(float f, float s, boolean forwards) {
   if (forwards) {
     force.rotate(angle-force.heading());
   }
   else {
     force.rotate(angle-force.heading()+PI);
   }
-  force.setMag(f);
+  force.setMag(Math.max(0.01,f-s));
 }
 
 
