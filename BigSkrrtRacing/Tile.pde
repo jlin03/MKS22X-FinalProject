@@ -20,15 +20,15 @@ public class Tile {
     shape = s;
   }
   public void display() {
-    if (shape.equals("square")) {
-      if (material.equals("road")) {
-        fill(0,0,0);
-        rect(x*20,y*20,20.0,20.0);
-      }
-      else {
-        fill(0,255,0);
-        rect(x*20,y*20,20.0,20.0);
-      }
+    if (shape.equals("road")) {
+      fill(0,0,0);
     }
+    else if (shape.equals("grass")) {
+      fill(0,255,0);
+    }
+    else if (shape.equals("paint")) {
+      fill(255,255,9);
+    }
+    rect(x*20,y*20,20.0,20.0);
   }   
 }
