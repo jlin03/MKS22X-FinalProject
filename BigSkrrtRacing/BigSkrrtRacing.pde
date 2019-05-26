@@ -1,12 +1,14 @@
 Car test;
 boolean hold;
+boolean up,down,left,right;
 
 void setup() {
   size(800,800);
   background(255,255,255);
   test = new Car(HALF_PI,0,0);
   hold=false;
-  
+ 
+  up=false;down=false;left=false;right=false;
   
 }
 void draw() {
@@ -14,11 +16,17 @@ void draw() {
   fill(0);
   if(keyPressed && key == CODED) {
     if(hold) {
-      if(keyCode == UP) {
-        test.drive(20,5,false);
+      if(up) {
+        test.drive(20,2,false);
       }
-      if(keyCode == DOWN) {
-        test.drive(20,5,true);
+      if(down) {
+        test.drive(20,2,true);
+      }
+      if(right) {
+        test.turn(PI/36,true);
+      }
+      if(left) {
+        test.turn(PI/36,false);
       }
     }
     else {
@@ -27,11 +35,11 @@ void draw() {
     
   }
   else {
-    test.drive(0.01,5,true);
+    test.drive(0.01,2,true);
     hold=false;
   }
   
-  test.update(5);
+  test.update(2);
   
   //vel lines
   line(200,200,200+test.vel.x,200+test.vel.y);
@@ -51,5 +59,35 @@ void draw() {
   line(400,400,400,400+test.force.y);
   text(test.force.x + "," + test.force.y,400,400);
   
-  text(test.driving + "",600,600);
+  text(test.angle + "",600,600);
+}
+
+void keyPressed() {
+  if (keyCode == UP && up == false) {
+    up = true;
+  }
+  if (keyCode == DOWN && down == false) {
+    down = true;
+  }
+  if (keyCode == LEFT && left == false) {
+    left = true;
+  }
+  if (keyCode == RIGHT && right == false) {
+    right = true;
+  }
+}
+
+void keyReleased() {
+  if (keyCode == UP && up == true) {
+    up = false;
+  }
+  if (keyCode == DOWN && down == true) {
+    down = false;
+  }
+  if (keyCode == LEFT && left == true) {
+    left = false;
+  }
+  if (keyCode == RIGHT && right == true) {
+    right = false;
+  }
 }

@@ -13,8 +13,8 @@ class Car {
     vel = new PVector(0, 0);
     accel = new PVector(0, 0);
     force = new PVector(0, 0.01);
-    driving = false;
     fric = new PVector(0,0);
+    driving = false;
   }
 
   void update(float k) {
@@ -41,6 +41,18 @@ class Car {
     vel.add(accel);
 
     pos.add(vel);
+  }
+  
+  void turn(float tireAngle, boolean right) {
+    if(vel.mag() > 0.1) {
+      PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI,vel);
+      if(right) {
+        angle -= PI*Math.pow(temp.y / sin(180-(2*(90-tireAngle))) * sin(90-tireAngle),2)*0.01;
+      }
+      else {
+        angle += PI*Math.pow(temp.y / sin(180-(2*(90-tireAngle))) * sin(90-tireAngle),2)*0.01;
+      }
+    }
   }
 
 void drive(float f, float s, boolean forwards) {
