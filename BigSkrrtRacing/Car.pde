@@ -18,6 +18,10 @@ class Car {
   }
 
   void update(float k) {
+    updateVectors(k);
+  }
+  
+  void updateVectors(float k) {
     accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     accel.add(force);
     accel.limit(5);
