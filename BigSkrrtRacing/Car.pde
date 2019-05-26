@@ -4,6 +4,7 @@ class Car {
   PVector vel;
   PVector accel;
   PVector force;
+  PVector fric;
   boolean driving;
 
   public Car(float a, float x, float y) {
@@ -13,15 +14,26 @@ class Car {
     accel = new PVector(0, 0);
     force = new PVector(0, 0.01);
     driving = false;
+    fric = new PVector(0,0);
   }
 
   void update(float k) {
     accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     accel.add(force);
+    accel.limit(5);
     
-    if(vel.mag() > 0 && accel.mag() < 0.05) {
-      vel.add(PVector.fromAngle(vel.heading()+PI,vel).setMag(k));
+    if(vel.mag() > 2*k && accel.mag() < 0.05) {
+      fric.add(PVector.fromAngle(vel.heading()+PI,vel).setMag(k));
+      vel.add(fric);
     }
+    else {
+      fric.setMag(0.01);
+    }
+    
+    if(vel.mag() <= 2*k) {
+         vel.setMag(0.01);
+    }
+    
     vel.add(accel);
 
     pos.add(vel);
