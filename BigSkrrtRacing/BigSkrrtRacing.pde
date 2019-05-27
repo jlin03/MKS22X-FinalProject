@@ -14,13 +14,20 @@ void setup() {
 void draw() {
   background(255,255,255);
   fill(0);
+  if(up == false && down == false) {
+    test.driving = false;
+  }
+  if(up == true || down == true) {
+    test.driving = true;
+  }
+ 
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(3,2,false);
+        test.drive(3,1,false);
       }
       if(down) {
-        test.drive(3,2,true);
+        test.drive(3,1,true);
       }
       if(right) {
         test.turn(PI/36,true);
@@ -35,7 +42,7 @@ void draw() {
     
   }
   else {
-    test.drive(0.01,2,true);
+    test.drive(0.01,1,true);
     hold=false;
   }
   
@@ -59,9 +66,8 @@ void draw() {
   line(400,400,400,400+test.force.y);
   text(test.force.x + "," + test.force.y,400,400);
   
-  text(test.angle + "",600,600);
-  
-  test.display();
+  text(test.driving + "",600,600);
+
 }
 
 void keyPressed() {

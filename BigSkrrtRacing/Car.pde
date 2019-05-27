@@ -23,11 +23,14 @@ class Car {
 
   void update(float k) {
     updateVectors(k);
+    display();
   }
   
   void updateVectors(float k) {
+    if(driving) {
+      accel.add(force);
+    }
     accel.setMag(Math.max(0,(float)(accel.mag()-k)));
-    accel.add(force);
     accel.limit(2);
     
     if(vel.mag() > 2*k && accel.mag() < 0.05) {
@@ -40,13 +43,13 @@ class Car {
     }
     
     vel.add(accel);
-    vel.limit(10);
+    vel.limit(15);
 
     pos.add(vel);
   }
   
   void turn(float tireAngle, boolean right) {
-    if(vel.mag() > 0.1) {
+    if(vel.mag() > 0.1 && driving) {
       PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
       temp.setMag(vel.mag());
       PVector centripetal = new PVector(0.01,0.01);
