@@ -6,15 +6,19 @@ class Car {
   PVector force;
   PVector fric;
   boolean driving;
+  float carLength;
+  float carWidth;
 
-  public Car(float a, float x, float y) {
+  public Car(float a, float x, float y, float l, float w) {
     angle = a;
     pos = new PVector(x, y);
     vel = new PVector(0, 0);
     accel = new PVector(0, 0);
-    force = new PVector(0, 0.01);
-    fric = new PVector(0,0);
+    force = new PVector(0.01, 0.01);
+    fric = new PVector(0.01,0.01);
     driving = false;
+    carLength = l;
+    carWidth = w;
   }
 
   void update(float k) {
@@ -27,11 +31,8 @@ class Car {
     accel.limit(5);
     
     if(vel.mag() > 2*k && accel.mag() < 0.05) {
-      fric.add(PVector.fromAngle(vel.heading()+PI,vel).setMag(k));
-      vel.add(fric);
-    }
-    else {
-      fric.setMag(0.01);
+      fric.setMag(k);
+      vel.add(PVector.fromAngle(vel.heading()+PI,fric));
     }
     
     if(vel.mag() <= 2*k) {
@@ -45,12 +46,17 @@ class Car {
   
   void turn(float tireAngle, boolean right) {
     if(vel.mag() > 0.1) {
-      PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI,vel);
+      PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
+      temp.setMag(vel.mag());
+      PVector centripetal = new PVector(0.01,0.01);
+      centripetal.setMag((float)(Math.pow(temp.y,2)/tan(90-tireAngle) * carLength));
       if(right) {
-        angle -= PI*Math.pow(temp.y / sin(180-(2*(90-tireAngle))) * sin(90-tireAngle),2)*0.01;
+        angle += tireAngle;
+        accel.add(PVector.fromAngle(vel.heading()-HALF_PI,centripetal));
       }
       else {
-        angle += PI*Math.pow(temp.y / sin(180-(2*(90-tireAngle))) * sin(90-tireAngle),2)*0.01;
+        angle -= tireAngle;
+        accel.add(PVector.fromAngle(vel.heading()+HALF_PI,centripetal));
       }
     }
   }
@@ -67,10 +73,13 @@ class Car {
 
   void display() {
     pushMatrix();
-      translate(pos.x,pos.y);
+      fill(255,0,0);
+      translate(pos.x-carLength/2,pos.y-carWidth/2);
       rotate(angle);
-      rect(0,0,100,50);
+      rect(0,0,carLength,carWidth);
     popMatrix();
+    fill(0);
+    point(pos.x,pos.y);
   }
 
 

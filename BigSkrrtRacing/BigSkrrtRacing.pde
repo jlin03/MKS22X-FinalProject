@@ -5,7 +5,7 @@ boolean up,down,left,right;
 void setup() {
   size(800,800);
   background(255,255,255);
-  test = new Car(HALF_PI,0,0);
+  test = new Car(0,400,400,100,50);
   hold=false;
  
   up=false;down=false;left=false;right=false;
@@ -17,10 +17,10 @@ void draw() {
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(5,1,false);
+        test.drive(3,2,false);
       }
       if(down) {
-        test.drive(5,1,true);
+        test.drive(3,2,true);
       }
       if(right) {
         test.turn(PI/36,true);
