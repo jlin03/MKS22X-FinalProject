@@ -28,7 +28,7 @@ class Car {
   void updateVectors(float k) {
     accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     accel.add(force);
-    accel.limit(5);
+    accel.limit(2);
     
     if(vel.mag() > 2*k && accel.mag() < 0.05) {
       fric.setMag(k);
@@ -40,6 +40,7 @@ class Car {
     }
     
     vel.add(accel);
+    vel.limit(10);
 
     pos.add(vel);
   }
@@ -51,12 +52,12 @@ class Car {
       PVector centripetal = new PVector(0.01,0.01);
       centripetal.setMag((float)(Math.pow(temp.y,2)/tan(90-tireAngle) * carLength));
       if(right) {
-        angle += tireAngle;
-        accel.add(PVector.fromAngle(vel.heading()-HALF_PI,centripetal));
+        angle -= tireAngle*temp.y*0.1;
+        vel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle -= tireAngle;
-        accel.add(PVector.fromAngle(vel.heading()+HALF_PI,centripetal));
+        angle += tireAngle*temp.y*0.1;
+        vel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }
   }
@@ -73,8 +74,9 @@ class Car {
 
   void display() {
     pushMatrix();
+      rectMode(CENTER);
       fill(255,0,0);
-      translate(pos.x-carLength/2,pos.y-carWidth/2);
+      translate(pos.x,pos.y);
       rotate(angle);
       rect(0,0,carLength,carWidth);
     popMatrix();
