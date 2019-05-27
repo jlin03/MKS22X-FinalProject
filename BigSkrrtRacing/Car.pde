@@ -55,15 +55,23 @@ class Car {
     }
   }
 
-void drive(float f, float s, boolean forwards) {
-  if (forwards) {
-    force.rotate(angle-force.heading());
+  void drive(float f, float s, boolean forwards) {
+    if (forwards) {
+      force.rotate(angle-force.heading());
+    }
+    else {
+      force.rotate(angle-force.heading()+PI);
+    }
+    force.setMag(Math.max(0.01,f-s));
   }
-  else {
-    force.rotate(angle-force.heading()+PI);
+
+  void display() {
+    pushMatrix();
+      translate(pos.x,pos.y);
+      rotate(angle);
+      rect(0,0,100,50);
+    popMatrix();
   }
-  force.setMag(Math.max(0.01,f-s));
-}
 
 
 

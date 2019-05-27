@@ -17,10 +17,10 @@ void draw() {
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(20,2,false);
+        test.drive(5,1,false);
       }
       if(down) {
-        test.drive(20,2,true);
+        test.drive(5,1,true);
       }
       if(right) {
         test.turn(PI/36,true);
@@ -39,7 +39,7 @@ void draw() {
     hold=false;
   }
   
-  test.update(2);
+  test.update(1);
   
   //vel lines
   line(200,200,200+test.vel.x,200+test.vel.y);
@@ -60,6 +60,8 @@ void draw() {
   text(test.force.x + "," + test.force.y,400,400);
   
   text(test.angle + "",600,600);
+  
+  test.display();
 }
 
 void keyPressed() {
