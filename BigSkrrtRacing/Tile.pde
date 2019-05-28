@@ -36,4 +36,7 @@ public class Tile {
   public float getKineticFriction() {
     return kineticFriction;
   }
+  public float getStaticFriction() {
+    return staticFriction;
+  }
 }

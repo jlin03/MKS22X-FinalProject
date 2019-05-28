@@ -3,8 +3,8 @@ public class Map {
   public int rows,cols;
   
   public Map() {
-    rows = width / 20;
-    cols = height / 20;
+    rows = height / 20;
+    cols = width / 20;
     tiles = new Tile[rows][cols];
     for (int r = 0; r < rows; r++) {
       for (int c = 0; c < cols; c++) {
