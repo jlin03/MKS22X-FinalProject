@@ -41,7 +41,9 @@ class Car {
     
     if(vel.mag() > 2*k && accel.mag() < 0.05) {
       fric.setMag(fric.mag()+k);
-      vel.add(PVector.fromAngle(vel.heading()+PI,fric));
+      PVector temp = new PVector(0.01,0.01);
+      temp.setMag(fric.mag());
+      vel.add(PVector.fromAngle(vel.heading()+PI,temp));
     }
     
     if(vel.mag() <= 2*k && accel.mag() < 0.05) {
@@ -58,11 +60,11 @@ class Car {
       float rad = tan(90-tireAngle) * carLength;
       centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle -= tireAngle*cos(tireAngle)*temp.y/60;
+        angle -= tireAngle*cos(tireAngle)*temp.y/80;
         accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle += tireAngle*cos(tireAngle)*temp.y/60;
+        angle += tireAngle*cos(tireAngle)*temp.y/80;
         accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }

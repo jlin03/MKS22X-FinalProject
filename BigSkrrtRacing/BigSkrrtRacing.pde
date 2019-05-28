@@ -32,10 +32,10 @@ void draw() {
         test.drive(3,1,true);
       }
       if(right) {
-        test.turn(PI/4,true);
+        test.turn(PI/6,true);
       }
       if(left) {
-        test.turn(PI/4,false);
+        test.turn(PI/6,false);
       }
     }
     else {
