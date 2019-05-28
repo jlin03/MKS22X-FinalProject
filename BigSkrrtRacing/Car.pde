@@ -58,11 +58,11 @@ class Car {
       float rad = tan(90-tireAngle) * carLength;
       centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle -= tireAngle*temp.y/rad;
+        angle -= tireAngle*cos(tireAngle)*temp.y/60;
         accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle += tireAngle*temp.y/rad;
+        angle += tireAngle*cos(tireAngle)*temp.y/60;
         accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }
