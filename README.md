@@ -10,5 +10,6 @@ Ben: Solidified map and worked on getting it to display properly, different outp
 
 5/24/19 - Jerry: velocity still needs to be fixed, found a temporary solution that isn't optimal
 
-
 5/26/19 - Jerry: velocity fixed, friction coefficients work, acceleration is now limited by magnitude, rotation of the car angle implemented along with its relation to velocity.
+
+5/27/19 - Ben: Tested driving of map on car, began work on shifting friction values for car for different types of terrain

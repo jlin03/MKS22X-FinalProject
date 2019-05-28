@@ -1,10 +1,12 @@
 Car test;
+Map m;
 boolean hold;
 boolean up,down,left,right;
 
 void setup() {
   size(800,800);
   background(255,255,255);
+  m = new Map();
   test = new Car(0,400,400,100,50);
   hold=false;
  
@@ -12,7 +14,7 @@ void setup() {
   
 }
 void draw() {
-  background(255,255,255);
+  m.display();
   fill(0);
   if(up == false && down == false) {
     test.driving = false;
