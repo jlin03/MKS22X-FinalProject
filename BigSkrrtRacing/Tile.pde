@@ -29,6 +29,7 @@ public class Tile {
     else if (shape.equals("paint")) {
       fill(255,255,9);
     }
+    rectMode(CORNER);
     rect(x*20,y*20,20.0,20.0);
   }
   public float getKineticFriction() {

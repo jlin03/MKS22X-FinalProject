@@ -34,4 +34,9 @@ public class Map {
     }
   }
   
+  public void getKinetic (int x, int y) {
+    Tile t = tiles[x][y];
+  }
+    
+  
 }
