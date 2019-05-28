@@ -31,7 +31,7 @@ class Car {
     if(driving) {
       accel.add(force);
     }
-    accel.limit(2);
+    accel.limit(carLength*carWidth/500);
     
     vel.add(accel);
     vel.limit(carLength*carWidth/100);
