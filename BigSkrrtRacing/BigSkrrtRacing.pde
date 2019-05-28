@@ -7,7 +7,7 @@ void setup() {
   size(800,800);
   background(255,255,255);
   m = new Map();
-  test = new Car(0,400,400,100,50);
+  test = new Car(0,400,400,50,25);
   hold=false;
  
   up=false;down=false;left=false;right=false;
