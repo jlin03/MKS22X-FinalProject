@@ -14,3 +14,5 @@ Ben: Solidified map and worked on getting it to display properly, different outp
 
 5/27/19 - Ben: Tested driving of map on car, began work on shifting friction values for car for different types of terrain
 Jerry: fixed many errors regarding the order in which vectors are updated, completed display method for car, fixed the turning angles when rotating the car and implemented centripetal acceleration.
+
+5/28/19 - Ben: Made final map for testing purposes, nicely laid out with no visible grid; began testing car physics on grass & road with Jerry;
