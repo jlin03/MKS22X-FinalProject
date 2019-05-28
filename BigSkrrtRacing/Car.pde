@@ -27,13 +27,14 @@ class Car {
   }
   
   void updateVectors(float k) {
+    k *= (carLength*carWidth)/1250;
     if(driving) {
       accel.add(force);
     }
     accel.limit(2);
     
     vel.add(accel);
-    vel.limit(15);
+    vel.limit(carLength*carWidth/100);
 
     pos.add(vel);
     
