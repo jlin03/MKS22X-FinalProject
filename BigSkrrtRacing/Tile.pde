@@ -30,6 +30,7 @@ public class Tile {
       fill(255,255,9);
     }
     rectMode(CORNER);
+    noStroke();
     rect(x*20,y*20,20.0,20.0);
   }
   public float getKineticFriction() {
