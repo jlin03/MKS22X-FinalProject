@@ -8,12 +8,12 @@ public class Tile {
   public void setMaterial (String m) {
     material = m;
     if (material.equals("road")) {
-      staticFriction = 100;
-      kineticFriction = 100;
+      staticFriction = 1;
+      kineticFriction = 1;
     }
     else {
-      staticFriction = 0;
-      kineticFriction = 0;
+      staticFriction = 10;
+      kineticFriction = 10;
     }
   }
   public void setShape (String s) {
@@ -30,5 +30,8 @@ public class Tile {
       fill(255,255,9);
     }
     rect(x*20,y*20,20.0,20.0);
-  }   
+  }
+  public float getKineticFriction() {
+    return kineticFriction;
+  }
 }
