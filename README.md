@@ -13,3 +13,4 @@ Ben: Solidified map and worked on getting it to display properly, different outp
 5/26/19 - Jerry: velocity fixed, friction coefficients work, acceleration is now limited by magnitude, rotation of the car angle implemented along with its relation to velocity.
 
 5/27/19 - Ben: Tested driving of map on car, began work on shifting friction values for car for different types of terrain
+Jerry: fixed many errors regarding the order in which vectors are updated, completed display method for car, fixed the turning angles when rotating the car and implemented centripetal acceleration.
