@@ -27,11 +27,17 @@ class Car {
   }
   
   void updateVectors(float k) {
-    accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     if(driving) {
       accel.add(force);
     }
     accel.limit(2);
+    
+    vel.add(accel);
+    vel.limit(15);
+
+    pos.add(vel);
+    
+    accel.setMag(Math.max(0,(float)(accel.mag()-k)));
     
     if(vel.mag() > 2*k && accel.mag() < 0.05) {
       fric.setMag(fric.mag()+k);
@@ -42,11 +48,6 @@ class Car {
          vel.setMag(0.01);
          fric.setMag(0.01);
     }
-    
-    vel.add(accel);
-    vel.limit(15);
-
-    pos.add(vel);
   }
   
   void turn(float tireAngle, boolean right) {
@@ -57,12 +58,12 @@ class Car {
       float rad = tan(90-tireAngle) * carLength;
       centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle -= tireAngle*temp.y*3/rad;
-        vel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
+        angle -= tireAngle*temp.y/rad;
+        accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle += tireAngle*temp.y*3/rad;
-        vel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
+        angle += tireAngle*temp.y/rad;
+        accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }
   }
