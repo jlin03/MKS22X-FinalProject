@@ -1,3 +1,13 @@
+PImage grass,mud,water,road;
+
+PImage[] grassCorner = new PImage[4];
+PImage[] mudCorner = new PImage[4];
+PImage[] waterCorner = new PImage[4];
+PImage[] roadCorner = new PImage[4];
+
+PImage[] roadEdge = new PImage[4];
+PImage[] roadPaint = new PImage[2];
+
 Car test;
 Map m;
 boolean hold;
@@ -5,11 +15,27 @@ boolean up,down,left,right;
 
 void setup() {
   size(800,800);
-  background(255,255,255);
+  
+  grass = loadImage("grass.png");
+  mud = loadImage("mud.png");
+  water = loadImage("water.png");
+  road = loadImage("road.png");
+  
+  for(int i = 0; i < 4;i++) {
+    grassCorner[i] = loadImage("grass-c" +(i+1)+".png");
+    mudCorner[i] = loadImage("mud-c" +(i+1)+".png");
+    waterCorner[i] = loadImage("water-c" +(i+1)+".png");
+    roadCorner[i] = loadImage("road-c" +(i+1)+".png");
+    roadEdge[i] = loadImage("road-e" +(i+1)+".png");
+  }
+  for(int i = 0; i < 2;i++) {
+    roadPaint[i] = loadImage("road-p" +(i+1)+".png");
+  }
+  
   m = new Map();
   test = new Car(0,400,400,50,25,0.15);
   hold=false;
- 
+
   up=false;down=false;left=false;right=false;
   
 }

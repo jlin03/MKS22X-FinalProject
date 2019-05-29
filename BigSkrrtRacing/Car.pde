@@ -93,6 +93,7 @@ class Car {
   }
 
   void drive(float f, float s, boolean forwards) {
+    s *= (carLength*carWidth)/1250;
     force.rotate(angle-force.heading());
     if (forwards) {
       fwd = true;

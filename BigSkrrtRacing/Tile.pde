@@ -1,6 +1,8 @@
 public class Tile {
   public String material,shape;
   public float x,y,staticFriction,kineticFriction;
+  PImage layer1;
+  PImage layer2;
   public Tile(float xcor,float ycor) {
     x = xcor;
     y = ycor;
@@ -30,17 +32,17 @@ public class Tile {
   }
   public void display() {
     if (shape.equals("road")) {
-      fill(0,0,0);
+      layer1 = road;
     }
     else if (shape.equals("grass")) {
-      fill(0,255,0);
+      layer1 = grass;
     }
     else if (shape.equals("paint")) {
-      fill(255,255,9);
+      layer1 = roadPaint[0];
     }
     rectMode(CORNER);
     noStroke();
-    rect(x*20,y*20,20.0,20.0);
+    image(layer1,x*20,y*20,20.0,20.0);
   }
   public float getKineticFriction() {
     return kineticFriction;
