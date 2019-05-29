@@ -6,10 +6,13 @@ class Car {
   PVector force;
   PVector fric;
   boolean driving;
+  boolean fwd;
   float carLength;
   float carWidth;
+  float engineOutput;
+  float power;
 
-  public Car(float a, float x, float y, float l, float w) {
+  public Car(float a, float x, float y, float l, float w, float p) {
     angle = a;
     pos = new PVector(x, y);
     vel = new PVector(0, 0);
@@ -19,6 +22,8 @@ class Car {
     driving = false;
     carLength = l;
     carWidth = w;
+    engineOutput = 0;
+    power = p;
   }
 
   void update(float k) {
@@ -29,8 +34,15 @@ class Car {
   void updateVectors(float k) {
     k *= (carLength*carWidth)/1250;
     if(driving) {
+      if(engineOutput < 1) {
+        engineOutput = Math.min(1,engineOutput+power);
+      }
       accel.add(force);
     }
+    else {
+      engineOutput = Math.max(0,engineOutput-(k*200/(carLength*carWidth)));
+    }
+    
     accel.limit(carLength*carWidth/500);
     
     vel.add(accel);
@@ -61,24 +73,28 @@ class Car {
       float rad = tan(90-tireAngle) * carLength;
       centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle -= tireAngle*cos(tireAngle)*temp.y/80;
-        accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
+        angle -= tireAngle*cos(tireAngle)*temp.y/100;
+        //accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle += tireAngle*cos(tireAngle)*temp.y/80;
-        accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
+        angle += tireAngle*cos(tireAngle)*temp.y/100;
+        //accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }
   }
 
   void drive(float f, float s, boolean forwards) {
+    int direction;
     if (forwards) {
       force.rotate(angle-force.heading());
+      fwd = true;
+      
     }
     else {
-      force.rotate(angle-force.heading()+PI);
+      fwd = false;
+      
     }
-    force.setMag(Math.max(0.01,f-s));
+    force.setMag(Math.max(0.01,(f-s)*engineOutput*1250/(carLength*carWidth)));
   }
 
   void display() {

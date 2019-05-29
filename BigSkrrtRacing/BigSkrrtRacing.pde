@@ -7,7 +7,7 @@ void setup() {
   size(800,800);
   background(255,255,255);
   m = new Map();
-  test = new Car(0,400,400,50,25);
+  test = new Car(0,400,400,50,25,0.15);
   hold=false;
  
   up=false;down=false;left=false;right=false;
@@ -26,10 +26,10 @@ void draw() {
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(3,1,false);
+        test.drive(3,1.3,false);
       }
       if(down) {
-        test.drive(3,1,true);
+        test.drive(3,1.3,true);
       }
       if(right) {
         test.turn(PI/6,true);
