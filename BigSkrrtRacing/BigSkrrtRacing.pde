@@ -40,7 +40,7 @@ void setup() {
   
 }
 void draw() {
-  m.display();
+  m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
   fill(0);
   if(up == false && down == false) {
     test.driving = false;
