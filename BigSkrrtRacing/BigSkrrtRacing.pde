@@ -26,10 +26,10 @@ void draw() {
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(3,1.3,false);
+        test.drive(3,1.3,true);
       }
       if(down) {
-        test.drive(3,1.3,true);
+        test.drive(3,1.3,false);
       }
       if(right) {
         test.turn(PI/6,true);

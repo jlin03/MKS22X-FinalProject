@@ -34,13 +34,22 @@ class Car {
   void updateVectors(float k) {
     k *= (carLength*carWidth)/1250;
     if(driving) {
-      if(engineOutput < 1) {
+      if(fwd) {
         engineOutput = Math.min(1,engineOutput+power);
       }
+      else {
+        engineOutput = Math.max(-1,engineOutput-power);
+      }
+      
       accel.add(force);
     }
     else {
-      engineOutput = Math.max(0,engineOutput-(k*200/(carLength*carWidth)));
+      if(engineOutput < 0) {
+        engineOutput = Math.min(0,engineOutput+(k*200/(carLength*carWidth)));
+      }
+      else {
+        engineOutput = Math.max(0,engineOutput-(k*200/(carLength*carWidth)));
+      }
     }
     
     accel.limit(carLength*carWidth/500);
@@ -73,28 +82,31 @@ class Car {
       float rad = tan(90-tireAngle) * carLength;
       centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle -= tireAngle*cos(tireAngle)*temp.y/100;
+        angle += tireAngle*cos(tireAngle)*temp.y/100;
         //accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
       }
       else {
-        angle += tireAngle*cos(tireAngle)*temp.y/100;
+        angle -= tireAngle*cos(tireAngle)*temp.y/100;
         //accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
       }
     }
   }
 
   void drive(float f, float s, boolean forwards) {
-    int direction;
+    force.rotate(angle-force.heading());
     if (forwards) {
-      force.rotate(angle-force.heading());
       fwd = true;
-      
     }
     else {
       fwd = false;
-      
     }
-    force.setMag(Math.max(0.01,(f-s)*engineOutput*1250/(carLength*carWidth)));
+    if(engineOutput < 0) {
+      force.setMag(Math.max(0.01,(f-s)*-1*engineOutput*1250/(carLength*carWidth)));
+      force.rotate(PI);
+    }
+    else {
+      force.setMag(Math.max(0.01,(f-s)*engineOutput*1250/(carLength*carWidth)));
+    }
   }
 
   void display() {
