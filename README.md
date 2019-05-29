@@ -16,3 +16,4 @@ Ben: Solidified map and worked on getting it to display properly, different outp
 Jerry: fixed many errors regarding the order in which vectors are updated, completed display method for car, fixed the turning angles when rotating the car and implemented centripetal acceleration.
 
 5/28/19 - Ben: Made final map for testing purposes, nicely laid out with no visible grid; began testing car physics on grass & road with Jerry;
+Jerry: removed centripetal acceleration as it technically isn't a real force; further tuned car angles when turning; implemented engineOutput which smoothly adds force to the car; added acceleration limits to car
