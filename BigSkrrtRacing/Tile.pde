@@ -7,14 +7,23 @@ public class Tile {
   }
   public void setMaterial (String m) {
     material = m;
-    if (material.equals("road")) {
-      staticFriction = 1;
+    if (material.equals("road") || material.equals("road-painted")) {
+      staticFriction = 1.3;
       kineticFriction = 1;
     }
-    else {
+    if (material.equals("grass")){
+      staticFriction = 0.9;
+      kineticFriction = 0.7;
+    }
+    if (material.equals("mud")){
       staticFriction = 10;
       kineticFriction = 10;
     }
+    if (material.equals("water")){
+      staticFriction = 0.5;
+      kineticFriction = 0.3;
+    }
+    
   }
   public void setShape (String s) {
     shape = s;
