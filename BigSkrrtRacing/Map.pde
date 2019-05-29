@@ -34,9 +34,9 @@ public class Map {
     }
   }
   
-  public Tile getTile (int x, int y) {
-    int co = x / 20;
-    int ro = y / 20;
+  public Tile getTile (float x, float y) {
+    int co = (int)(x / 20);
+    int ro = (int)(y / 20);
     return tiles[co][ro];
   }
     
