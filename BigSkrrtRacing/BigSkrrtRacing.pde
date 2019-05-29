@@ -33,6 +33,7 @@ void setup() {
   }
   
   m = new Map();
+  //m.display();
   test = new Car(0,400,400,50,25,0.15);
   hold=false;
 
