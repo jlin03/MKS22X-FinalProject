@@ -34,8 +34,10 @@ public class Map {
     }
   }
   
-  public void getKinetic (int x, int y) {
-    Tile t = tiles[x][y];
+  public Tile getTile (int x, int y) {
+    int co = x / 20;
+    int ro = y / 20;
+    return tiles[co][ro];
   }
     
   
