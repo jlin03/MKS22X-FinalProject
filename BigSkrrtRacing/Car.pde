@@ -38,8 +38,16 @@ class Car {
   }
   
   void updateVectors(float k) {
+    if(pos.y > height || pos.y < 0) {
+      pos.y = Math.abs(height-pos.y);
+    }
+    if(pos.x > width || pos.x < 0) {
+      pos.x = Math.abs(width-pos.x);
+    }
+    
+    
     k *= mass;
-    fric.setMag(k);
+    fric.setMag(k*(float)Math.pow(vel.mag()/2,2));
     if(driving) {
       if(fwd) {
         engineOutput = Math.min(1,engineOutput+power);
@@ -60,7 +68,7 @@ class Car {
     }
    
     vel = momentum.copy().setMag(momentum.mag()/mass);
-    vel.limit(mass*7);
+    //vel.limit(mass*7);
 
     pos.add(vel);
     
