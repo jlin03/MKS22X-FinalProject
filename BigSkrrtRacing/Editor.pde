@@ -4,7 +4,7 @@ class Editor {
   
   public Editor(Map _m) {
     m = _m;
-    blockMenu = newMenu();
+    blockMenu = new Menu("blockSelection");
   }
   
   
@@ -17,8 +17,4 @@ class Editor {
   
   
   
-  
-  
-  
-  
-}
+ 
