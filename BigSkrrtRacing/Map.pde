@@ -12,15 +12,15 @@ public class Map {
         if (c > cols / 3 && c < 2 * (cols / 3)+1) {
           tiles[c][r].setMaterial("road");
           if (c == 19 || c == 21) {
-            tiles[c][r].setShape("paint");
+            tiles[c][r].setMaterial("road-painted-1");
           }
           else {
-            tiles[c][r].setShape("road");
+            tiles[c][r].setMaterial("road");
           }
         }
         else {
           tiles[c][r].setMaterial("grass");
-          tiles[c][r].setShape("grass");
+          tiles[c][r].setMaterial("grass");
         }
       }
     }

@@ -1,5 +1,5 @@
 public class Tile {
-  public String material,shape;
+  public String material;
   public float x,y,staticFriction,kineticFriction;
   PImage layer1;
   PImage layer2;
@@ -25,25 +25,57 @@ public class Tile {
       staticFriction = 0.5;
       kineticFriction = 0.3;
     }
+    assignMaterial();
     
   }
-  public void setShape (String s) {
-    shape = s;
-  }
   public void display() {
-    if (shape.equals("road")) {
+    image(layer1,x*20,y*20,20.0,20.0);
+    
+    if(layer2 != null) {
+      image(layer2,x*20,y*20,20.0,20.0);
+    }
+    
+  } 
+  
+  void assignMaterial() {
+    String[] parts = material.split(",");
+    if (parts[0].equals("road")) {
       layer1 = road;
     }
-    else if (shape.equals("grass")) {
+    else if (parts[0].equals("grass")) {
       layer1 = grass;
     }
-    else if (shape.equals("paint")) {
-      layer1 = roadPaint[0];
+    else if (parts[0].equals("water")) {
+      layer1 = water;
     }
-    rectMode(CORNER);
-    noStroke();
-    image(layer1,x*20,y*20,20.0,20.0);
+    else if (parts[0].equals("mud")) {
+      layer1 = mud;
+    }
+    else if (parts[0].contains("road-painted-")) {
+      layer1 = roadPaint[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
+    }
+    else if (parts[0].contains("road-edge-")) {
+      layer1 = roadEdge[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
+    }
+    
+    
+    if(parts.length > 1) {
+      if (parts[1].contains("road-corner-")) {
+        layer2 = roadCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+      }
+      else if (parts[1].contains("grass-corner-")) {
+        layer2 = grassCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+      }
+      else if (parts[1].contains("water-corner-")) {
+        layer2 = waterCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+      }
+      else if (parts[1].contains("mud-corner-")) {
+        layer2 = mudCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+      }
+    }
+    
   }
+  
   public float getKineticFriction() {
     return kineticFriction;
   }
