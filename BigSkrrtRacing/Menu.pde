@@ -9,6 +9,7 @@ class Menu {
     selection = null;
     x = _x;
     y = _y;
+    buttons = new ArrayList<Clickable>();
     
     if(type.equals("blockSelection")) {
       buttons.add(new Tile(x+18,y+30,36,"grass"));
