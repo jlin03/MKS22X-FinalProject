@@ -1,11 +1,15 @@
 class Menu {
   String type;
   String selection;
+  float x,y;
   ArrayList<Clickable> buttons;
   
-  public Menu(String t) {
+  public Menu(String t,float _x, float _y) {
     type = t;
     selection = null;
+    x = _x;
+    y = _y;
+    
     if(type.equals("blockSelection")) {
       buttons.add(new Tile(18,30,36,"grass"));
       buttons.add(new Tile(75,30,36,"mud"));
@@ -27,7 +31,7 @@ class Menu {
     
   }
   
-  void open(float x, float y) {
+  void open() {
     while(selection == null) {
       
       
@@ -35,12 +39,11 @@ class Menu {
     }
   }
   
-  void display(float x, float y) {
+  void display() {
     if(type.equals("blockSelection")) {
-      image(blockSelection,x,y,450,450);
-      
-      
+      image(blockSelection,x,y,450,450);   
     }
+    
     
   }
   
