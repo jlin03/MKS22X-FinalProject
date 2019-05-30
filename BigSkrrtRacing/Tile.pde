@@ -66,16 +66,16 @@ public class Tile implements Clickable{
       layer1 = roadEdge[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
     else if (parts[0].contains("road-corner-")) {
-      layer1 = roadCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      layer1 = roadCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
     else if (parts[0].contains("grass-corner-")) {
-      layer1 = grassCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      layer1 = grassCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
     else if (parts[0].contains("water-corner-")) {
-      layer1 = waterCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      layer1 = waterCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
     else if (parts[0].contains("mud-corner-")) {
-      layer1 = mudCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      layer1 = mudCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
     
     if(parts.length > 1) {
