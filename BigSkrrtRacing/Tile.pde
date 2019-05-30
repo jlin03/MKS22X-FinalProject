@@ -1,4 +1,4 @@
-public class Tile {
+public class Tile implements Clickable{
   public String material;
   public float x,y,size,staticFriction,kineticFriction;
   PImage layer1;
@@ -86,6 +86,10 @@ public class Tile {
       }
     }
     
+  }
+  
+  boolean isMouseOver() {
+    return(mouseX>x && mouseX<x+size && mouseY>y && mouseY<y+size);
   }
   
   public float getKineticFriction() {

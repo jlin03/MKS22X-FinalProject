@@ -1,3 +1,5 @@
+PImage blockSelection;
+
 PImage grass,mud,water,road;
 
 PImage[] grassCorner = new PImage[4];
@@ -15,6 +17,8 @@ boolean up,down,left,right;
 
 void setup() {
   size(1200,900);
+  
+  blockSelection = loadImage("blockmenu.png");
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");
