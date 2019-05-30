@@ -1,0 +1,3 @@
+interface Clickable {
+  boolean isMouseOver();
+}
