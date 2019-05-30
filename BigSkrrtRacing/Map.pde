@@ -30,9 +30,9 @@ public class Map {
   }
   
   public void display() {
-    for (int r = 0; r < rows; r++) {
-      for(int c = 0; c < cols; c++) {
-        tiles[r][c].display();
+    for (int c = 0; c < cols; c++) {
+      for(int r = 0; r < rows; r++) {
+        tiles[c][r].display();
       }
     }
   }
