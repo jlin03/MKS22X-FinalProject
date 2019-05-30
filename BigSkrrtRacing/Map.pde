@@ -40,8 +40,8 @@ public class Map {
   void update(float x, float y, float ra) {
     for (int r = 0; r < rows; r++) {
       for(int c = 0; c < cols; c++) {
-        if(Math.pow((r*20)-x,2)+Math.pow((c*20-y),2) < Math.pow(ra,2)) {
-          tiles[r][c].display();
+        if(Math.pow((c*20)-x,2)+Math.pow((r*20-y),2) < Math.pow(ra,2)) {
+          tiles[c][r].display();
         }
       }
     }

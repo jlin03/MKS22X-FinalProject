@@ -14,7 +14,7 @@ boolean hold;
 boolean up,down,left,right;
 
 void setup() {
-  size(800,800);
+  size(1200,900);
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");
