@@ -61,16 +61,16 @@ public class Tile {
     
     if(parts.length > 1) {
       if (parts[1].contains("road-corner-")) {
-        layer2 = roadCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+        layer2 = roadCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
       }
       else if (parts[1].contains("grass-corner-")) {
-        layer2 = grassCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+        layer2 = grassCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
       }
       else if (parts[1].contains("water-corner-")) {
-        layer2 = waterCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+        layer2 = waterCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
       }
       else if (parts[1].contains("mud-corner-")) {
-        layer2 = mudCorner[Integer.parseInt(parts[0].substring(parts[1].length()-1))-1];
+        layer2 = mudCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
       }
     }
     
