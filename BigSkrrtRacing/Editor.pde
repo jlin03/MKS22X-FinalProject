@@ -28,11 +28,11 @@ class Editor {
       else if (!substance.contains("-c")){
         setTile(mouseX,mouseY,substance);
       }
+      display();
     }
     if(keyPressed && keyCode == 'm') {
       openMenu();
     }
-    display();
   }
   
   void display() {
