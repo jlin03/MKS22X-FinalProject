@@ -1,11 +1,12 @@
 public class Tile {
   public String material;
-  public float x,y,staticFriction,kineticFriction;
+  public float x,y,size,staticFriction,kineticFriction;
   PImage layer1;
   PImage layer2;
-  public Tile(float xcor,float ycor) {
+  public Tile(float xcor,float ycor, float s) {
     x = xcor;
     y = ycor;
+    size = s;
   }
   public void setMaterial (String m) {
     material = m;
@@ -29,10 +30,10 @@ public class Tile {
     
   }
   public void display() {
-    image(layer1,x,y,20.0,20.0);
+    image(layer1,x,y,size,size);
     
     if(layer2 != null) {
-      image(layer2,x,y,20.0,20.0);
+      image(layer2,x,y,size,size);
     }
     
   } 
