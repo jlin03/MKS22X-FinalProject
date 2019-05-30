@@ -32,6 +32,7 @@ class Editor {
     if(keyPressed && keyCode == 'm') {
       openMenu();
     }
+    display();
   }
   
   void display() {
