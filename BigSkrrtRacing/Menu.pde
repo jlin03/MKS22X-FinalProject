@@ -11,32 +11,38 @@ class Menu {
     y = _y;
     
     if(type.equals("blockSelection")) {
-      buttons.add(new Tile(18,30,36,"grass"));
-      buttons.add(new Tile(75,30,36,"mud"));
-      buttons.add(new Tile(132,30,36,"water"));
-      buttons.add(new Tile(189,30,36,"road"));
+      buttons.add(new Tile(x+18,y+30,36,"grass"));
+      buttons.add(new Tile(x+75,y+30,36,"mud"));
+      buttons.add(new Tile(x+132,y+30,36,"water"));
+      buttons.add(new Tile(x+189,y+30,36,"road"));
       
       for(int i = 1; i < 5; i++) {
-        buttons.add(new Tile(18,30+(75*i),36,"grass-corner-"+i));
-        buttons.add(new Tile(75,30+(75*i),36,"mud-corner-"+i));
-        buttons.add(new Tile(132,30+(75*i),36,"water-corner-"+i));
-        buttons.add(new Tile(189,30+(75*i),36,"road-corner-"+i));
-        buttons.add(new Tile(246,30+(75*(i-1)),36,"road-edge-"+i));
+        buttons.add(new Tile(x+18,y+30+(75*i),36,"grass-corner-"+i));
+        buttons.add(new Tile(x+75,y+30+(75*i),36,"mud-corner-"+i));
+        buttons.add(new Tile(x+132,y+30+(75*i),36,"water-corner-"+i));
+        buttons.add(new Tile(x+189,y+30+(75*i),36,"road-corner-"+i));
+        buttons.add(new Tile(x+246,y+30+(75*(i-1)),36,"road-edge-"+i));
       }
       
       for(int i = 1; i < 3; i++) {
-        buttons.add(new Tile(303,30+(75*(i-1)),36,"road-painted-"+i));
+        buttons.add(new Tile(x+303,y+30+(75*(i-1)),36,"road-painted-"+i));
       }
     }
     
   }
   
-  void open() {
+  String open() {
     while(selection == null) {
-      
-      
-      
+      display();
+      for(Clickable c : buttons) {
+        if(c.isMouseOver() && mousePressed) {
+          selection = c.getAction();
+        }
+      }
     }
+    String temp = selection;
+    selection = null;
+    return temp;
   }
   
   void display() {
@@ -44,7 +50,9 @@ class Menu {
       image(blockSelection,x,y,450,450);   
     }
     
-    
+    for(Clickable c : buttons) {
+      c.display();
+    }
   }
   
   String getSelection() {
