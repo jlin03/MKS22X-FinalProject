@@ -99,6 +99,10 @@ public class Tile implements Clickable{
     return(mouseX>x && mouseX<x+size && mouseY>y && mouseY<y+size);
   }
   
+  String getAction() {
+    return material;
+  }
+  
   public float getKineticFriction() {
     return kineticFriction;
   }
