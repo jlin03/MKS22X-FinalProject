@@ -1,4 +1,4 @@
-class Editor 
+class Editor {
   Map m;
   Menu blockMenu;
   String substance;
@@ -12,14 +12,31 @@ class Editor
     substance = s;
   }
   
-  void setTile(float x, float y) {
-    m.getTile(x,y).setMaterial(substance);
+  void setTile(float x, float y, String mat) {
+    m.getTile(x,y).setMaterial(mat);
   }
   
   void openMenu() {
-    blockMenu.open();
+    substance = blockMenu.open();
   }
   
+  void update() {
+    if(mousePressed && substance != null) {
+      if(substance.contains("-c") && m.getTile(mouseX,mouseY).material.split(",").length < 2) {
+        setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
+      }
+      else if (!substance.contains("-c")){
+        setTile(mouseX,mouseY,substance);
+      }
+    }
+    if(keyPressed && keyCode == 'm') {
+      openMenu();
+    }
+  }
+  
+  void display() {
+    m.display();
+  }
   
 }
   
