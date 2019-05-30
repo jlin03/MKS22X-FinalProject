@@ -29,10 +29,10 @@ public class Tile {
     
   }
   public void display() {
-    image(layer1,x*20,y*20,20.0,20.0);
+    image(layer1,x,y,20.0,20.0);
     
     if(layer2 != null) {
-      image(layer2,x*20,y*20,20.0,20.0);
+      image(layer2,x,y,20.0,20.0);
     }
     
   } 

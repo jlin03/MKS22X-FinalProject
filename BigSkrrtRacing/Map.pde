@@ -8,7 +8,7 @@ public class Map {
     tiles = new Tile[cols][rows];
     for (int c = 0; c < cols; c++) {
       for (int r = 0; r < rows; r++) {
-        tiles[c][r] = new Tile(c,r);
+        tiles[c][r] = new Tile(c*20,r*20);
         if (c > cols / 3 && c < 2 * (cols / 3)+1) {
           tiles[c][r].setMaterial("road");
           if (c == 19 || c == 21) {
