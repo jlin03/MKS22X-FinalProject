@@ -8,6 +8,13 @@ public class Tile implements Clickable{
     y = ycor;
     size = s;
   }
+  public Tile(float xcor,float ycor, float s, String m) {
+    x = xcor;
+    y = ycor;
+    size = s;
+    setMaterial(m);
+  }
+  
   public void setMaterial (String m) {
     material = m;
     if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-")) {
