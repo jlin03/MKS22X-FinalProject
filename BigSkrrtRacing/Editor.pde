@@ -17,7 +17,7 @@ class Editor {
   }
   
   void openMenu() {
-    blockMenu.open();
+    blockMenu.open(width/2,height/2);
   }
   
   
