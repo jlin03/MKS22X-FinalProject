@@ -14,12 +14,15 @@ public class Map {
           if (c == 19 || c == 21) {
             tiles[c][r].setMaterial("road-painted-1");
           }
-          else {
-            tiles[c][r].setMaterial("road");
+          if (c == 14) {
+            tiles[c][r].setMaterial("road-edge-3");
           }
+          if (c == 26) {
+            tiles[c][r].setMaterial("road-edge-1");
+          }
+          
         }
         else {
-          tiles[c][r].setMaterial("grass");
           tiles[c][r].setMaterial("grass");
         }
       }
