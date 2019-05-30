@@ -9,19 +9,19 @@ public class Tile {
   }
   public void setMaterial (String m) {
     material = m;
-    if (material.equals("road") || material.equals("road-painted")) {
+    if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-")) {
       staticFriction = 1.3;
       kineticFriction = 1;
     }
-    if (material.equals("grass")){
+    if (material.equals("grass") || material.contains("grass-corner-")){
       staticFriction = 0.9;
       kineticFriction = 0.7;
     }
-    if (material.equals("mud")){
+    if (material.equals("mud") || material.contains("mud-corner-")){
       staticFriction = 10;
       kineticFriction = 10;
     }
-    if (material.equals("water")){
+    if (material.equals("water") || material.contains("water-corner-")){
       staticFriction = 0.5;
       kineticFriction = 0.3;
     }
@@ -57,7 +57,18 @@ public class Tile {
     else if (parts[0].contains("road-edge-")) {
       layer1 = roadEdge[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
     }
-    
+    else if (parts[0].contains("road-corner-")) {
+      layer1 = roadCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+    }
+    else if (parts[0].contains("grass-corner-")) {
+      layer1 = grassCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+    }
+    else if (parts[0].contains("water-corner-")) {
+      layer1 = waterCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+    }
+    else if (parts[0].contains("mud-corner-")) {
+      layer1 = mudCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+    }
     
     if(parts.length > 1) {
       if (parts[1].contains("road-corner-")) {
