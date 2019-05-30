@@ -76,12 +76,12 @@ class Car {
   }
   
   void turn(float tireAngle, boolean right) {
-    if(vel.mag() > 0.1 && driving) {
+    if(vel.mag() > 0.1) {
       PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
       temp.setMag(vel.mag());
       float rad = tan(90-tireAngle) * carLength;
       if(right) {
-        angle += cos(tireAngle)*temp.y/rad/2/PI;
+        angle += cos(tireAngle)*temp.y/rad;
       }
       else {
         angle -= cos(tireAngle)*temp.y/rad;
