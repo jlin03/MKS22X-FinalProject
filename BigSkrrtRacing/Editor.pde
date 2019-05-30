@@ -16,7 +16,9 @@ class Editor {
     m.getTile(x,y).setMaterial(substance);
   }
   
-  
+  void openMenu() {
+    blockMenu.open();
+  }
   
   
 }

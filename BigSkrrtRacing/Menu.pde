@@ -7,6 +7,14 @@ class Menu {
     selection = null;
   }
   
+  void open() {
+    while(selection == null) {
+      
+      
+      
+    }
+  }
+  
   void display(float x, float y) {
     if(type.equals("blockSelection")) {
       
