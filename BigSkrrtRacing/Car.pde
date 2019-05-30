@@ -5,25 +5,31 @@ class Car {
   PVector accel;
   PVector force;
   PVector fric;
+  PVector momentum;
   boolean driving;
   boolean fwd;
   float carLength;
   float carWidth;
+  float mass;
   float engineOutput;
   float power;
+  float max_force;
 
-  public Car(float a, float x, float y, float l, float w, float p) {
+  public Car(float a, float x, float y, float l, float w, float m, float p, float f) {
     angle = a;
     pos = new PVector(x, y);
     vel = new PVector(0, 0);
     accel = new PVector(0, 0);
     force = new PVector(0.01, 0.01);
     fric = new PVector(0.01,0.01);
+    momentum = new PVector(0.01,0.01);
     driving = false;
     carLength = l;
     carWidth = w;
     engineOutput = 0;
     power = p;
+    mass = m;
+    max_force = f;
   }
 
   void update(float k) {
@@ -32,7 +38,8 @@ class Car {
   }
   
   void updateVectors(float k) {
-    k *= (carLength*carWidth)/1250;
+    k *= mass;
+    fric.setMag(k);
     if(driving) {
       if(fwd) {
         engineOutput = Math.min(1,engineOutput+power);
@@ -41,7 +48,7 @@ class Car {
         engineOutput = Math.max(-1,engineOutput-power);
       }
       
-      accel.add(force);
+      momentum.add(force);
     }
     else {
       if(engineOutput < 0) {
@@ -51,26 +58,20 @@ class Car {
         engineOutput = Math.max(0,engineOutput-(k*200/(carLength*carWidth)));
       }
     }
-    
-    accel.limit(carLength*carWidth/500);
-    
-    vel.add(accel);
-    vel.limit(carLength*carWidth/100);
+   
+    vel = momentum.copy().setMag(momentum.mag()/mass);
+    vel.limit(mass*7);
 
     pos.add(vel);
     
-    accel.setMag(Math.max(0,(float)(accel.mag()-k)));
+    momentum.setMag(Math.max(0,(float)(momentum.mag()-(k*mass))));
     
-    if(vel.mag() > 2*k && accel.mag() < 0.05) {
-      fric.setMag(fric.mag()+k);
-      PVector temp = new PVector(0.01,0.01);
-      temp.setMag(fric.mag());
-      vel.add(PVector.fromAngle(vel.heading()+PI,temp));
-    }
+    //if(vel.mag() > 2*k && force.mag() < 0.05) {
+    //  momentum.add(PVector.fromAngle(vel.heading()+PI,fric.copy()));
+    //}
     
-    if(vel.mag() <= 2*k && accel.mag() < 0.05) {
-         vel.setMag(0.01);
-         fric.setMag(0.01);
+    if(vel.mag() <= 2*k && force.mag() < 0.05) {
+       vel.setMag(0.01);
     }
   }
   
@@ -78,22 +79,18 @@ class Car {
     if(vel.mag() > 0.1 && driving) {
       PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
       temp.setMag(vel.mag());
-      PVector centripetal = new PVector(0.01,0.01);
       float rad = tan(90-tireAngle) * carLength;
-      centripetal.setMag((float)(Math.pow(temp.y,2)/rad)*0.05);
       if(right) {
-        angle += tireAngle*cos(tireAngle)*temp.y/100;
-        //accel.add(PVector.fromAngle(angle-HALF_PI,centripetal));
+        angle += cos(tireAngle)*temp.y/rad/2/PI;
       }
       else {
-        angle -= tireAngle*cos(tireAngle)*temp.y/100;
-        //accel.add(PVector.fromAngle(angle+HALF_PI,centripetal));
+        angle -= cos(tireAngle)*temp.y/rad;
       }
     }
   }
 
-  void drive(float f, float s, boolean forwards) {
-    s *= (carLength*carWidth)/1250;
+  void drive(float s, boolean forwards) {
+    s *= mass;
     force.rotate(angle-force.heading());
     if (forwards) {
       fwd = true;
@@ -102,11 +99,11 @@ class Car {
       fwd = false;
     }
     if(engineOutput < 0) {
-      force.setMag(Math.max(0.01,(f-s)*-1*engineOutput*1250/(carLength*carWidth)));
+      force.setMag(Math.max(0.01,(max_force-s)*-1*engineOutput*mass));
       force.rotate(PI);
     }
     else {
-      force.setMag(Math.max(0.01,(f-s)*engineOutput*1250/(carLength*carWidth)));
+      force.setMag(Math.max(0.01,(max_force-s)*engineOutput*mass));
     }
   }
 

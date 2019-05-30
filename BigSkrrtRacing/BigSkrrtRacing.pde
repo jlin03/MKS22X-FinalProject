@@ -34,7 +34,7 @@ void setup() {
   
   m = new Map();
   m.display();
-  test = new Car(0,400,400,50,25,0.15);
+  test = new Car(0,400,400,50,25,1,0.2,3);
   hold=false;
 
   up=false;down=false;left=false;right=false;
@@ -53,16 +53,16 @@ void draw() {
   if(keyPressed && key == CODED) {
     if(hold) {
       if(up) {
-        test.drive(3,1.3,true);
+        test.drive(1.3,true);
       }
       if(down) {
-        test.drive(3,1.3,false);
+        test.drive(1.3,false);
       }
       if(right) {
-        test.turn(PI/6,true);
+        test.turn(PI/4,true);
       }
       if(left) {
-        test.turn(PI/6,false);
+        test.turn(PI/4,false);
       }
     }
     else {
@@ -71,7 +71,7 @@ void draw() {
     
   }
   else {
-    test.drive(0.01,1,true);
+    test.drive(1,true);
     hold=false;
   }
   
