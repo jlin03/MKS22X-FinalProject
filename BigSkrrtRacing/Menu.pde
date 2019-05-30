@@ -7,7 +7,7 @@ class Menu {
     selection = null;
   }
   
-  void open() {
+  void open(float x, float y) {
     while(selection == null) {
       
       
@@ -15,7 +15,7 @@ class Menu {
     }
   }
   
-  void display(float x, float y) {
+  void display() {
     if(type.equals("blockSelection")) {
       
     }
