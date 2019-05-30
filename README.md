@@ -17,3 +17,5 @@ Jerry: fixed many errors regarding the order in which vectors are updated, compl
 
 5/28/19 - Ben: Made final map for testing purposes, nicely laid out with no visible grid; began testing car physics on grass & road with Jerry;
 Jerry: removed centripetal acceleration as it technically isn't a real force; further tuned car angles when turning; implemented engineOutput which smoothly adds force to the car; added acceleration limits to car
+
+5/28/19 - Jerry: did some more momentum and angle tuning for the car; drew all the tile pixel art pieces and imported them into the sketch; added code for all the tile images and material/friction values; made updating the map more efficient by only updating tiles that need to be updated; fixed map and tile classes' coordinate systems to work for more generalized functions; started working on menu and editor classes that will allow the user to create a level
