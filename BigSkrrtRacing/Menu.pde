@@ -13,6 +13,10 @@ class Menu {
     }
   }
   
+  String getSelection() {
+    return selection;
+  }
+  
   
   
 }
