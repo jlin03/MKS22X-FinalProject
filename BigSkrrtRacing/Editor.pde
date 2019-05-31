@@ -25,10 +25,15 @@ class Editor {
   
   void update() {
     if(mousePressed && substance != null) {
-      if(substance.contains("-c") && m.getTile(mouseX,mouseY).material.split(",").length < 2) {
-        setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
+      if(substance.contains("-c")) {
+        if(m.getTile(mouseX,mouseY).material.split(",").length == 1) {
+          setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
+        }
+        else {
+          setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material.split(",")[0] + "," + substance);
+        }
       }
-      else if (!substance.contains("-c")){
+      else {
         setTile(mouseX,mouseY,substance);
       }
       display();
