@@ -1,5 +1,5 @@
+import java.io.FileWriter;
 PImage blockSelection;
-
 PImage grass,mud,water,road;
 
 PImage[] grassCorner = new PImage[4];

@@ -3,6 +3,7 @@ class Editor {
   Menu blockMenu;
   boolean toggleMenu;
   String substance;
+  int mapNum;
   
   public Editor(Map _m) {
     m = _m;
@@ -56,6 +57,26 @@ class Editor {
     m.display();
   }
   
+  void saveMap(String num) {
+    FileWriter savedMap = new FileWriter("Map-"+num,true);
+    String currentCol;
+    for (Tile[] colo: m.tiles) {
+      for (Tile t: colo) {
+        currentCol += t.material;
+        if (t.y < colo.length-1) {
+          currentCol += ";";
+        }
+        else {
+          savedMap.write(currentCol+"\n"); //each row of txt file represents one column of map data
+          currentCol = "";
+        }
+      }
+    }
+    savedMap.close();
+  }
+        
+        
+    
 }
   
   
