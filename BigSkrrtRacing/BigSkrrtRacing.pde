@@ -15,6 +15,8 @@ Map m;
 boolean hold;
 boolean up,down,left,right;
 
+Editor e;
+
 void setup() {
   size(1200,900);
   
@@ -38,14 +40,21 @@ void setup() {
   
   m = new Map();
   m.display();
+  
   test = new Car(0,400,400,50,25,1,0.2,3);
   hold=false;
 
   up=false;down=false;left=false;right=false;
   
+  e = new Editor(m);
+  e.display();
+  
 }
 void draw() {
-  m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
+  e.update();
+  
+  
+  /*m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
   fill(0);
   if(up == false && down == false) {
     test.driving = false;
@@ -100,6 +109,8 @@ void draw() {
   text(test.force.x + "," + test.force.y,400,400);
   
   text(test.driving + "",600,600);
+  
+  */
 
 }
 

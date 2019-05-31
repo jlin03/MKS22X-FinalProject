@@ -34,14 +34,11 @@ class Menu {
   
   String open() {
     display();
-    //while(selection == null) {
-
-      for(Clickable c : buttons) {
-        if(c.isMouseOver() && mousePressed) {
-          selection = c.getAction();
-        }
+    for(Clickable c : buttons) {
+      if(c.isMouseOver() && mousePressed) {
+        selection = c.getAction();
       }
-    //}
+    }
     String temp = selection;
     selection = null;
     return temp;

@@ -1,11 +1,14 @@
 class Editor {
   Map m;
   Menu blockMenu;
+  boolean toggleMenu;
   String substance;
   
   public Editor(Map _m) {
     m = _m;
     blockMenu = new Menu("blockSelection",width/2-225,height/2-225);
+    toggleMenu = false;
+    substance = "grass";
   }
   
   void setSubstance(String s) {
@@ -30,8 +33,17 @@ class Editor {
       }
       display();
     }
-    if(keyPressed && keyCode == 'm') {
-      openMenu();
+    if(keyPressed) {
+      if(key == 'm' || key == 'M') {
+        toggleMenu = !toggleMenu;
+        display();
+      }
+    }
+    if(toggleMenu) {
+        openMenu();
+        if(substance != null) {
+          toggleMenu = !toggleMenu;
+        }
     }
   }
   
