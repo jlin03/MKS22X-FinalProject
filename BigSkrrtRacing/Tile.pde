@@ -92,6 +92,9 @@ public class Tile implements Clickable{
         layer2 = mudCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
       }
     }
+    else {
+      layer2 = null;
+    }
     
   }
   
