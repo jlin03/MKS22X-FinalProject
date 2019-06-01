@@ -25,7 +25,8 @@ class Editor {
   }
   
   void update() {
-    if(mousePressed && substance != null) {
+    println(substance);
+    if(mousePressed && substance != null && !toggleMenu) {
       if(substance.contains("-c")) {
         if(m.getTile(mouseX,mouseY).material.split(",").length == 1) {
           setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
@@ -47,6 +48,10 @@ class Editor {
     }
     if(toggleMenu) {
         openMenu();
+        if(substance != null) {
+          toggleMenu = !toggleMenu;
+          display();
+        }
     }
   }
   
