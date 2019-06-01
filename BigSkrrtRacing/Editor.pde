@@ -7,7 +7,7 @@ class Editor {
   
   public Editor(Map _m) {
     m = _m;
-    blockMenu = new Menu("blockSelection",width/2-225,height/2-225);
+    blockMenu = new Menu("blockSelection",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     toggleMenu = false;
     substance = "grass";
   }
@@ -25,7 +25,6 @@ class Editor {
   }
   
   void update() {
-    println(substance);
     if(mousePressed && substance != null && !toggleMenu) {
       if(substance.contains("-c")) {
         if(m.getTile(mouseX,mouseY).material.split(",").length == 1) {
@@ -44,6 +43,7 @@ class Editor {
       if(key == 'm' || key == 'M') {
         toggleMenu = !toggleMenu;
         display();
+        delay(100);
       }
     }
     if(toggleMenu) {
@@ -51,6 +51,7 @@ class Editor {
         if(substance != null) {
           toggleMenu = !toggleMenu;
           display();
+          delay(100);
         }
     }
   }

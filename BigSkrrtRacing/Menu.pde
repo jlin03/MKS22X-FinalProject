@@ -11,22 +11,34 @@ class Menu {
     y = _y;
     buttons = new ArrayList<Clickable>();
     
+    float mapScale = min(height/2,width/2);
+    
+    float initDistX = (float)18/450*mapScale;
+    float initDistY = (float)30/450*mapScale;
+    float distScale = (float)75/450*mapScale;
+    
+    float sideLength = (float)36/450*mapScale;
+    
+    
+    
+    println(sideLength);
+    
     if(type.equals("blockSelection")) {
-      buttons.add(new Tile(x+18,y+30,36,"grass"));
-      buttons.add(new Tile(x+93,y+30,36,"mud"));
-      buttons.add(new Tile(x+168,y+30,36,"water"));
-      buttons.add(new Tile(x+243,y+30,36,"road"));
+      buttons.add(new Tile(x+initDistX,y+initDistY,sideLength,"grass"));
+      buttons.add(new Tile(x+initDistX+distScale,y+initDistY,sideLength,"mud"));
+      buttons.add(new Tile(x+initDistX+(distScale*2),y+initDistY,sideLength,"water"));
+      buttons.add(new Tile(x+initDistX+(distScale*3),y+initDistY,sideLength,"road"));
       
       for(int i = 1; i < 5; i++) {
-        buttons.add(new Tile(x+18,y+30+(75*i),36,"grass-corner-"+i));
-        buttons.add(new Tile(x+93,y+30+(75*i),36,"mud-corner-"+i));
-        buttons.add(new Tile(x+168,y+30+(75*i),36,"water-corner-"+i));
-        buttons.add(new Tile(x+243,y+30+(75*i),36,"road-corner-"+i));
-        buttons.add(new Tile(x+318,y+30+(75*(i-1)),36,"road-edge-"+i));
+        buttons.add(new Tile(x+initDistX,y+initDistY+(distScale*i),sideLength,"grass-corner-"+i));
+        buttons.add(new Tile(x+initDistX+distScale,y+initDistY+(distScale*i),sideLength,"mud-corner-"+i));
+        buttons.add(new Tile(x+initDistX+(distScale*2),y+initDistY+(distScale*i),sideLength,"water-corner-"+i));
+        buttons.add(new Tile(x+initDistX+(distScale*3),y+initDistY+(distScale*i),sideLength,"road-corner-"+i));
+        buttons.add(new Tile(x+initDistX+(distScale*4),y+initDistY+(distScale*(i-1)),sideLength,"road-edge-"+i));
       }
       
       for(int i = 1; i < 3; i++) {
-        buttons.add(new Tile(x+393,y+30+(75*(i-1)),36,"road-painted-"+i));
+        buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*(i-1)),sideLength,"road-painted-"+i));
       }
     }
     
@@ -46,7 +58,7 @@ class Menu {
   
   void display() {
     if(type.equals("blockSelection")) {
-      image(blockSelection,x,y,450,450);   
+      image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }
     
     for(Clickable c : buttons) {
