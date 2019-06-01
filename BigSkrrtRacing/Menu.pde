@@ -3,6 +3,7 @@ class Menu {
   String selection;
   float x,y;
   ArrayList<Clickable> buttons;
+  float mapScale;
   
   public Menu(String t,float _x, float _y) {
     type = t;
@@ -11,17 +12,13 @@ class Menu {
     y = _y;
     buttons = new ArrayList<Clickable>();
     
-    float mapScale = min(height/2,width/2);
+    mapScale = min(height/2,width/2);
     
     float initDistX = (float)18/450*mapScale;
     float initDistY = (float)30/450*mapScale;
     float distScale = (float)75/450*mapScale;
     
     float sideLength = (float)36/450*mapScale;
-    
-    
-    
-    println(sideLength);
     
     if(type.equals("blockSelection")) {
       buttons.add(new Tile(x+initDistX,y+initDistY,sideLength,"grass"));
@@ -58,16 +55,11 @@ class Menu {
   
   void display() {
     if(type.equals("blockSelection")) {
+      tint(255,255);
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }
     else if(type.equals("currentBlock")) {
-      if(mouseX > 0 && mouseX < 80*80/450*min(height/2,width/2) && mouseY > 0 && mouseY < 150*80/450*min(height/2,width/2)) {
-        tint(255,100);
-      }
-      else {
-        tint(255,255);
-      }
-      image(currentBlock,x,y,150*80/450*min(height/2,width/2),80*80/450*min(height/2,width/2));
+      image(currentBlock,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
     }
     
     for(Clickable c : buttons) {

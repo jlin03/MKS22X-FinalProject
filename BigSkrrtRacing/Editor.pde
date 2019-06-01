@@ -1,6 +1,8 @@
 class Editor {
   Map m;
   Menu blockMenu;
+  Menu currentBlock;
+  Tile current;
   boolean toggleMenu;
   String substance;
   int mapNum;
@@ -8,8 +10,10 @@ class Editor {
   public Editor(Map _m) {
     m = _m;
     blockMenu = new Menu("blockSelection",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
+    currentBlock = new Menu("currentBlock",0,height-(float)80/450*min(height/2,width/2));
     toggleMenu = false;
     substance = "grass";
+    current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));
   }
   
   void setSubstance(String s) {
@@ -25,6 +29,13 @@ class Editor {
   }
   
   void update() {
+    currentBlock.display();
+    
+    if(substance != null) {
+      current.setMaterial(substance);
+      current.display();
+    }
+    
     if(mousePressed && substance != null && !toggleMenu) {
       if(substance.contains("-c")) {
         if(m.getTile(mouseX,mouseY).material.split(",").length == 1) {

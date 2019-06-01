@@ -1,5 +1,6 @@
 import java.io.FileWriter;
 PImage blockSelection;
+PImage currentBlock;
 PImage grass,mud,water,road;
 
 PImage[] grassCorner = new PImage[4];
@@ -21,6 +22,7 @@ void setup() {
   size(1200,900);
   
   blockSelection = loadImage("blockmenu.png");
+  currentBlock = loadImage("currentBlock.png");
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");
