@@ -47,9 +47,6 @@ class Editor {
     }
     if(toggleMenu) {
         openMenu();
-        if(substance != null) {
-          toggleMenu = !toggleMenu;
-        }
     }
   }
   
@@ -58,6 +55,7 @@ class Editor {
   }
   
   void saveMap(String num) {
+    /*
     FileWriter savedMap = new FileWriter("Map-"+num,true);
     String currentCol;
     for (Tile[] colo: m.tiles) {
@@ -73,6 +71,7 @@ class Editor {
       }
     }
     savedMap.close();
+    */
   }
         
         
