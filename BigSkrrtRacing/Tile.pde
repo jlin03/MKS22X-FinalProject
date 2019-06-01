@@ -17,7 +17,7 @@ public class Tile implements Clickable{
   
   public void setMaterial (String m) {
     material = m;
-    if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-")) {
+    if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-") || material.equals("goal")) {
       staticFriction = 1.3;
       kineticFriction = 1;
     }
@@ -58,6 +58,9 @@ public class Tile implements Clickable{
     }
     else if (parts[0].equals("mud")) {
       layer1 = mud;
+    }
+    else if (parts[0].equals("goal")) {
+      layer1 = goal;
     }
     else if (parts[0].contains("road-painted-")) {
       layer1 = roadPaint[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
