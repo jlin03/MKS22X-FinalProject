@@ -60,6 +60,15 @@ class Menu {
     if(type.equals("blockSelection")) {
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }
+    else if(type.equals("currentBlock")) {
+      if(mouseX > 0 && mouseX < 80*80/450*min(height/2,width/2) && mouseY > 0 && mouseY < 150*80/450*min(height/2,width/2)) {
+        tint(255,100);
+      }
+      else {
+        tint(255,255);
+      }
+      image(currentBlock,x,y,150*80/450*min(height/2,width/2),80*80/450*min(height/2,width/2));
+    }
     
     for(Clickable c : buttons) {
       c.display();
