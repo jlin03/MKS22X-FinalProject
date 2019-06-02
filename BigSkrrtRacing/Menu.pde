@@ -37,6 +37,8 @@ class Menu {
       for(int i = 1; i < 3; i++) {
         buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*(i-1)),sideLength,"road-painted-"+i));
       }
+      
+      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*(2)),sideLength,"goal"));
     }
     
   }
