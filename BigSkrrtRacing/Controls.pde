@@ -34,7 +34,7 @@ class Controls {
       right = true;
     }
     if ((key == 'b' || key == 'B') && brake == false) {
-      right = true;
+      brake = true;
     }
   }
 
@@ -52,7 +52,7 @@ class Controls {
       right = false;
     }
     if ((key == 'b' || key == 'B') && right == true) {
-      right = false;
+      brake = false;
     }
   }
   
