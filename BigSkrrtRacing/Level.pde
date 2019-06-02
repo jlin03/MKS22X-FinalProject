@@ -21,9 +21,12 @@ class Level {
   }
   
   void update() {
+    Tile currentlyOn = m.getTile(player.pos.x,player.pos.y);
+      
     timer += 1/60;
     timer = Math.round(timer * 100)/100.0;
     input.update();
+    
     
     if(input.up == false && input.down == false) {
       player.driving = false;
@@ -34,10 +37,10 @@ class Level {
     
     if(input.hold) {
       if(input.up) {
-        player.drive(1.3,true);
+        player.drive(currentlyOn.getStaticFriction(),true);
       }
       if(input.down) {
-        player.drive(1.3,false);
+        player.drive(currentlyOn.getStaticFriction(),false);
       }
       if(input.right) {
         player.turn(PI/4,true);
@@ -46,24 +49,37 @@ class Level {
         player.turn(PI/4,false);
       }
     }
-    
-    if(m.getTile(player.pos.x,player.pos.y).material.contains("goal-pre") && onTrack) {
+
+    if(currentlyOn.material.contains("goal-pre") && onTrack) {
       laps++;
       onTrack = false;
     }
-    else if(m.getTile(player.pos.x,player.pos.y).material.equals("goal") && onTrack) {
+    else if(currentlyOn.material.equals("goal") && onTrack) {
       laps--;
       onTrack = false;
     }
-    else if(!(m.getTile(player.pos.x,player.pos.y).material.equals("goal") || m.getTile(player.pos.x,player.pos.y).material.contains("goal-pre"))) {
+    else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre"))) {
       onTrack = true;
     }
     
+    m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
+    m.update(width,0,100);
+    player.update(currentlyOn.getKineticFriction());
+    player.display();
+    text(timer,width-50,20);
+    text(laps,width-50,40);
     
   }
   
   void trackComplete() {
     
+  }
+  
+  void display() {
+    m.display();
+    player.display();
+    text(timer,width-50,20);
+    text(laps,width-50,40);
   }
   
   
