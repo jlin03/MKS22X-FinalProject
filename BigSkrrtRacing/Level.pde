@@ -23,8 +23,7 @@ class Level {
   void update() {
     Tile currentlyOn = m.getTile(player.pos.x,player.pos.y);
       
-    timer += 1/60;
-    timer = Math.round(timer * 100)/100.0;
+    timer += (float)1/60;
     input.update();
     
     
@@ -63,10 +62,10 @@ class Level {
     }
     
     m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
-    m.update(width,0,100);
+    m.update(width,0,120);
     player.update(currentlyOn.getKineticFriction());
     player.display();
-    text(timer,width-50,20);
+    text(int(timer/60)+":"+((int)timer%60)+":"+(timer%1)*1000000,width-100,20);
     text(laps,width-50,40);
     
   }
