@@ -2,6 +2,7 @@ class Level {
   Map m;
   float timer;
   int laps;
+  boolean onTrack;
   Menu pause;
   Car player;
   Controls input;
@@ -46,6 +47,22 @@ class Level {
       }
     }
     
+    if(m.getTile(player.pos.x,player.pos.y).material.contains("goal-pre") && onTrack) {
+      laps++;
+      onTrack = false;
+    }
+    else if(m.getTile(player.pos.x,player.pos.y).material.equals("goal") && onTrack) {
+      laps--;
+      onTrack = false;
+    }
+    else if(!(m.getTile(player.pos.x,player.pos.y).material.equals("goal") || m.getTile(player.pos.x,player.pos.y).material.contains("goal-pre"))) {
+      onTrack = true;
+    }
+    
+    
+  }
+  
+  void trackComplete() {
     
   }
   
