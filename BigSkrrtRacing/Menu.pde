@@ -38,7 +38,18 @@ class Menu {
         buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*(i-1)),sideLength,"road-painted-"+i));
       }
       
-      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*(2)),sideLength,"goal"));
+      for(int i = 1; i < 5; i++) {
+        buttons.add(new Tile(x+initDistX+(distScale*(i-1)),y+initDistY+(distScale*5),sideLength,"barrier-corner-"+i));
+      }
+      
+      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*2),sideLength,"goal"));
+      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*3),sideLength,"goal-pre"));
+      
+      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*4),sideLength,"barrier-corner-1"));
+      buttons.add(new Tile(x+initDistX+(distScale*4),y+initDistY+(distScale*4),sideLength,"barrier-corner-2"));
+      buttons.add(new Tile(x+initDistX+(distScale*4),y+initDistY+(distScale*5),sideLength,"barrier-corner-3"));
+      buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*5),sideLength,"barrier-corner-4"));
+      
     }
     
   }
