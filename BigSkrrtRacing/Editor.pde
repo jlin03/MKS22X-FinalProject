@@ -43,12 +43,14 @@ class Editor {
     if(mousePressed && substance != null && !toggleMenu) {
       Tile selected = m.getTile(mouseX,mouseY);
       String[] layers = selected.material.split(",");
-      if(substance.contains("-c") || substance.contains("r-e") && !layers[layers.length-1].equals(substance)) {
+      println(selected.material);
+      if((substance.contains("-c") || substance.contains("r-e")) && !layers[layers.length-1].equals(substance)) {
         setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
       }
-      else {
+      else if(!(substance.contains("-c") || substance.contains("r-e")) && substance != null && !toggleMenu){
         setTile(mouseX,mouseY,substance);
       }
+      println(selected.layers);
       display();
     }
     if(keyPressed) {
