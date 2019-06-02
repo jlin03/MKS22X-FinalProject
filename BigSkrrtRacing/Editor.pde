@@ -41,7 +41,9 @@ class Editor {
     }
     
     if(mousePressed && substance != null && !toggleMenu) {
-      if(substance.contains("-c") || substance.contains("r-e")) {
+      Tile selected = m.getTile(mouseX,mouseY);
+      String[] layers = selected.material.split(",");
+      if(substance.contains("-c") || substance.contains("r-e") && !layers[layers.length-1].equals(substance)) {
         setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
       }
       else {
