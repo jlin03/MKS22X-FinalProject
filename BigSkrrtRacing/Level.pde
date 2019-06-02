@@ -65,7 +65,14 @@ class Level {
     m.update(width,0,120);
     player.update(currentlyOn.getKineticFriction());
     player.display();
-    text(int(timer/60)+":"+((int)timer%60)+":"+(timer%1)*1000000,width-100,20);
+    
+    String time = int(timer/60)+":";
+    if(((int)timer%60) < 10) {
+      time += "0";
+    }
+    time += ((int)timer%60)+":"+(int)((timer%1)*10000);
+    
+    text(time,width-100,20);
     text(laps,width-50,40);
     
   }
