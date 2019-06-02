@@ -1,4 +1,4 @@
-5/20/19 - created repo;setup basic things
+ 5/20/19 - created repo;setup basic things
 
 5/21/19 - In conjunction: coded PolarVector class; tested accessors and vector manipulation methods
 
@@ -21,5 +21,7 @@ Jerry: removed centripetal acceleration as it technically isn't a real force; fu
 5/29/19 - Ben: started work on interfacing information between car and map, made preparations for further testing and improved the flow/structure of the map class; worked with Jerry to design general structure of level editor
 Jerry: did some more momentum and angle tuning for the car; drew all the tile pixel art pieces and imported them into the sketch; added code for all the tile images and material/friction values; made updating the map more efficient by only updating tiles that need to be updated; fixed map and tile classes' coordinate systems to work for more generalized functions; started working on menu and editor classes that will allow the user to create a level
 
-5/30/19 - Jerry:
+5/30/19 - Jerry: completed most parts of editor including a block selection menu and a map to be edited.
 Ben: Tested initial structure of editor, made changes to better integrate Tile and Map with the new modular editor class instead of hard coded map information
+
+6/1/19 - Jerry: added a current block tab on editor as an extra touch, added a new goal block and allowed it to be selected, the block selection menu is now generalized to any screen size, ported over controls from the main class into a separate controls class, started making the level class.
