@@ -4,6 +4,8 @@ PFont comic_sans;
 
 PImage blockSelection;
 PImage currentBlock;
+PImage pauseMenu;
+PImage winMenu;
 
 PImage grass,mud,water,road,goal,preGoal;
 
@@ -36,6 +38,8 @@ void setup() {
   
   blockSelection = loadImage("blockmenu.png");
   currentBlock = loadImage("currentBlock.png");
+  pauseMenu = loadImage("pauseMenu.png");
+  winMenu = loadImage("winMenu.png");
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");
