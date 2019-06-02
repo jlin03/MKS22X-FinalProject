@@ -1,5 +1,5 @@
 class Controls {
-  boolean up,down,left,right,brake;
+  boolean up,down,left,right,brake,hold;
   
   public Controls() {
     up = false;
@@ -7,6 +7,17 @@ class Controls {
     left = false;
     right = false;
     brake = false;
+  }
+  
+  void update() {
+    if(keyPressed && key == CODED) {
+      if(!hold) {
+         hold = true;
+      }
+    }
+    else {
+      hold=false;
+    }
   }
   
   void keyPressed() {
