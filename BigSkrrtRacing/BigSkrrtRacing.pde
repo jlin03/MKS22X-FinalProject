@@ -1,4 +1,7 @@
 import java.io.FileWriter;
+
+PFont comic_sans;
+
 PImage blockSelection;
 PImage currentBlock;
 
@@ -25,6 +28,8 @@ Editor e;
 void setup() {
   size(1200,900);
   
+  comic_sans = loadFont("comic.ttf");
+  
   blockSelection = loadImage("blockmenu.png");
   currentBlock = loadImage("currentBlock.png");
   
@@ -47,6 +52,8 @@ void setup() {
   for(int i = 0; i < 2;i++) {
     roadPaint[i] = loadImage("road-p" +(i+1)+".png");
   }
+  
+  textFont(comic_sans);
   
   m = new Map();
   m.display();
