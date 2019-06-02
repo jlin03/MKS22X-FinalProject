@@ -14,6 +14,8 @@ class Editor {
     toggleMenu = false;
     substance = "grass";
     current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));
+    stroke(0);
+    textSize(20);
   }
   
   void setSubstance(String s) {
@@ -29,6 +31,8 @@ class Editor {
   }
   
   void update() {
+    text("Press 'm' to open the block selection menu.",0,20);
+    
     currentBlock.display();
     
     if(substance != null) {

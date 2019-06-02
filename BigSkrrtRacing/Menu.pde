@@ -39,7 +39,7 @@ class Menu {
       }
       
       for(int i = 1; i < 5; i++) {
-        buttons.add(new Tile(x+initDistX+(distScale*(i-1)),y+initDistY+(distScale*5),sideLength,"barrier-corner-"+i));
+        buttons.add(new Tile(x+initDistX+(distScale*(i-1)),y+initDistY+(distScale*5),sideLength,"barrier-edge-"+i));
       }
       
       buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*2),sideLength,"goal"));
