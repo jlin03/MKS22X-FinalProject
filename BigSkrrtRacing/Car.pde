@@ -83,6 +83,10 @@ class Car {
     }
   }
   
+  void brake() {
+    engineOutput /= 1.5;
+  }
+  
   void turn(float tireAngle, boolean right) {
     if(vel.mag() > 0.1) {
       PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
