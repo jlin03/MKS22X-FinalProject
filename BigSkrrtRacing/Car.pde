@@ -83,7 +83,7 @@ class Car {
   }
   
   void brake() {
-    engineOutput /= 1.5;
+    engineOutput /= 2;
   }
   
   void turn(float tireAngle, boolean right) {
