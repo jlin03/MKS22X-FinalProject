@@ -18,12 +18,14 @@ PImage[] roadPaint = new PImage[2];
 PImage[] barrierCorner = new PImage[4];
 PImage[] barrierEdge = new PImage[4];
 
+
+boolean u,d,r,l,b;
+
 Car test;
 Map m;
-boolean hold;
-boolean up,down,left,right;
 
 Editor e;
+Level _l;
 
 void setup() {
   size(1200,900);
@@ -58,17 +60,15 @@ void setup() {
   m = new Map();
   m.display();
   
-  test = new Car(0,400,400,50,25,1,0.2,3);
-  hold=false;
-
-  up=false;down=false;left=false;right=false;
-  
   e = new Editor(m);
   e.display();
   
+  _l = new Level(m);
+  _l.display();
+  
 }
 void draw() {
-  e.update();
+  _l.update();
   
   
   /*m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
@@ -130,3 +130,39 @@ void draw() {
   */
 
 }
+
+void keyPressed() {
+    if (keyCode == UP && u == false) {
+      u = true;
+    }
+    if (keyCode == DOWN && d == false) {
+      d = true;
+    }
+    if (keyCode == LEFT && l == false) {
+      l = true;
+    }
+    if (keyCode == RIGHT && r == false) {
+      r = true;
+    }
+    if ((key == 'b' || key == 'B') && b == false) {
+      b = true;
+    }
+  }
+
+  void keyReleased() {
+    if (keyCode == UP && u == true) {
+      u = false;
+    }
+    if (keyCode == DOWN && d == true) {
+      d = false;
+    }
+    if (keyCode == LEFT && l == true) {
+      l = false;
+    }
+    if (keyCode == RIGHT && r == true) {
+      r = false;
+    }
+    if ((key == 'b' || key == 'B') && r == true) {
+      b = false;
+    }
+  }
