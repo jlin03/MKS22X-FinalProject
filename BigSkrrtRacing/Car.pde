@@ -82,6 +82,11 @@ class Car {
     }
   }
   
+  void reverseMomentum(float incidence) {
+    momentum = PVector.fromAngle(momentum.heading()+(incidence*2),momentum.copy());
+    pos.add(momentum.copy().setMag(momentum.mag()*10/mass));
+  }
+  
   void brake() {
     engineOutput /= 2;
   }

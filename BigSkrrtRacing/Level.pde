@@ -6,6 +6,8 @@ class Level {
   Menu pause;
   Car player;
   Controls input;
+  Menu winScreen;
+  int animVel;
   
   public Level(Map _m) {
     m = _m;
@@ -18,6 +20,7 @@ class Level {
     player = new Car(0,400,400,50,25,1,0.2,3);
     timer = 0;
     laps = 0;
+    animVel = 0;
   }
   
   void update() {
@@ -47,6 +50,10 @@ class Level {
       if(input.left) {
         player.turn(PI/4,false);
       }
+    }
+    
+    if(currentlyOn.material.contains("barrier")) {
+      player.reverseMomentum(PI/2);
     }
 
     if(currentlyOn.material.contains("goal-pre") && onTrack) {
