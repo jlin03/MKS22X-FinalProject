@@ -41,16 +41,14 @@ class Editor {
     }
     
     if(mousePressed && substance != null && !toggleMenu) {
-      Tile selected = m.getTile(mouseX,mouseY);
+      Tile selected = m.getTile(mX,mY);
       String[] layers = selected.material.split(",");
-      println(selected.material);
       if((substance.contains("-c") || substance.contains("r-e")) && !layers[layers.length-1].equals(substance)) {
-        setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
+        setTile(mX,mY,m.getTile(mX,mY).material + "," + substance);
       }
       else if(!(substance.contains("-c") || substance.contains("r-e")) && substance != null && !toggleMenu){
-        setTile(mouseX,mouseY,substance);
+        setTile(mX,mY,substance);
       }
-      println(selected.layers);
       display();
     }
     if(keyPressed) {

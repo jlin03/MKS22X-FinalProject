@@ -20,6 +20,8 @@ PImage[] barrierEdge = new PImage[4];
 
 
 boolean u,d,r,l,b;
+String mode;
+float mX,mY;
 
 Car test;
 Map m;
@@ -66,9 +68,19 @@ void setup() {
   _l = new Level(m);
   _l.display();
   
+  mode = "editor";
+  
 }
 void draw() {
-  _l.update();
+  mX = constrain(mouseX,10,width-10);
+  mY = constrain(mouseY,10,height-10);
+  
+  if(mode.equals("editor")) {
+    e.update();
+  }
+  if(mode.equals("level")) {
+    _l.update();
+  }
   
   
   /*m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
@@ -146,6 +158,12 @@ void keyPressed() {
     }
     if ((key == 'b' || key == 'B') && b == false) {
       b = true;
+    }
+    if (key == 'e') {
+      mode = "editor";
+    }
+    if (key == 'l') {
+      mode = "level";
     }
   }
 
