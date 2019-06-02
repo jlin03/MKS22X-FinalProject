@@ -37,13 +37,8 @@ class Editor {
     }
     
     if(mousePressed && substance != null && !toggleMenu) {
-      if(substance.contains("-c")) {
-        if(m.getTile(mouseX,mouseY).material.split(",").length == 1) {
-          setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
-        }
-        else {
-          setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material.split(",")[0] + "," + substance);
-        }
+      if(substance.contains("-c") || substance.contains("r-e")) {
+        setTile(mouseX,mouseY,m.getTile(mouseX,mouseY).material + "," + substance);
       }
       else {
         setTile(mouseX,mouseY,substance);
