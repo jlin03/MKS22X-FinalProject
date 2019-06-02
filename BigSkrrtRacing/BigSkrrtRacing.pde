@@ -21,6 +21,7 @@ PImage[] roadPaint = new PImage[2];
 PImage[] barrierCorner = new PImage[4];
 PImage[] barrierEdge = new PImage[4];
 
+ArrayList<Map> maps;
 
 boolean u,d,r,l,b;
 String mode;
@@ -34,6 +35,8 @@ Level _l;
 
 void setup() {
   size(1200,900);
+  
+  maps = new ArrayList<Map>();
   
   comic_sans = createFont("comic.ttf",20,true);
   
