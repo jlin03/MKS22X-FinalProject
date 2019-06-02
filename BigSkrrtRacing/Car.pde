@@ -38,6 +38,7 @@ class Car {
   }
   
   void updateVectors(float k) {
+    angle %= TWO_PI;
     k *= mass;
     fric.setMag(k*(float)Math.pow(vel.mag()/2,2));
     if(driving) {
@@ -80,11 +81,6 @@ class Car {
     if(pos.x >= width || pos.x <= 0) {
       pos.x = Math.min(width-1,Math.abs(width-pos.x));
     }
-  }
-  
-  void reverseMomentum(float incidence) {
-    momentum = PVector.fromAngle(momentum.heading()+(incidence*2),momentum.copy());
-    pos.add(momentum.copy().setMag(momentum.mag()*10/mass));
   }
   
   void brake() {

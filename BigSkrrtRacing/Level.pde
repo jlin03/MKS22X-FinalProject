@@ -51,10 +51,6 @@ class Level {
         player.turn(PI/4,false);
       }
     }
-    
-    if(currentlyOn.material.contains("barrier")) {
-      player.reverseMomentum(PI/2);
-    }
 
     if(currentlyOn.material.contains("goal-pre") && onTrack) {
       laps++;
@@ -64,8 +60,11 @@ class Level {
       laps--;
       onTrack = false;
     }
-    else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre"))) {
+    else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre") || currentlyOn.material.equals("grass"))) {
       onTrack = true;
+    }
+    else if(currentlyOn.material.equals("grass")) {
+      initialize();
     }
     
     m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
