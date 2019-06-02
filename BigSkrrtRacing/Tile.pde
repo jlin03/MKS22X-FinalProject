@@ -37,6 +37,7 @@ public class Tile implements Clickable{
     
   }
   public void display() {
+    imageMode(CORNER);
     for(PImage layer : layers) {
       image(layer,x,y,size,size);
     }

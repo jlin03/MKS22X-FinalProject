@@ -68,10 +68,11 @@ class Menu {
   
   void display() {
     if(type.equals("blockSelection")) {
-      tint(255,255);
+      imageMode(CORNER);
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }
     else if(type.equals("currentBlock")) {
+      imageMode(CORNER);
       image(currentBlock,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
     }
     
