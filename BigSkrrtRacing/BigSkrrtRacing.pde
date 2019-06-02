@@ -2,7 +2,7 @@ import java.io.FileWriter;
 PImage blockSelection;
 PImage currentBlock;
 
-PImage grass,mud,water,road,goal;
+PImage grass,mud,water,road,goal,preGoal;
 
 PImage[] grassCorner = new PImage[4];
 PImage[] mudCorner = new PImage[4];
@@ -11,6 +11,9 @@ PImage[] roadCorner = new PImage[4];
 
 PImage[] roadEdge = new PImage[4];
 PImage[] roadPaint = new PImage[2];
+
+PImage[] barrierCorner = new PImage[4];
+PImage[] barrierEdge = new PImage[4];
 
 Car test;
 Map m;
@@ -30,6 +33,7 @@ void setup() {
   water = loadImage("water.png");
   road = loadImage("road.png");
   goal = loadImage("goal.png");
+  preGoal = loadImage("goal-pre.png");
   
   for(int i = 0; i < 4;i++) {
     grassCorner[i] = loadImage("grass-c" +(i+1)+".png");
@@ -37,6 +41,8 @@ void setup() {
     waterCorner[i] = loadImage("water-c" +(i+1)+".png");
     roadCorner[i] = loadImage("road-c" +(i+1)+".png");
     roadEdge[i] = loadImage("road-e" +(i+1)+".png");
+    barrierCorner[i] = loadImage("barrier-c" +(i+1)+".png");
+    barrierEdge[i] = loadImage("barrier-e" +(i+1)+".png");
   }
   for(int i = 0; i < 2;i++) {
     roadPaint[i] = loadImage("road-p" +(i+1)+".png");
