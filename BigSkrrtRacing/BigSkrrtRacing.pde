@@ -28,7 +28,7 @@ Editor e;
 void setup() {
   size(1200,900);
   
-  comic_sans = loadFont("comic.ttf");
+  comic_sans = createFont("comic.ttf",20,true);
   
   blockSelection = loadImage("blockmenu.png");
   currentBlock = loadImage("currentBlock.png");
