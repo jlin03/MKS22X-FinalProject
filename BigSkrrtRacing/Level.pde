@@ -19,6 +19,36 @@ class Level {
     laps = 0;
   }
   
+  void update() {
+    timer += 1/60;
+    timer = Math.round(timer * 100)/100.0;
+    input.update();
+    
+    if(input.up == false && input.down == false) {
+      player.driving = false;
+    }
+    else {
+      player.driving = true;
+    }
+    
+    if(input.hold) {
+      if(input.up) {
+        player.drive(1.3,true);
+      }
+      if(input.down) {
+        player.drive(1.3,false);
+      }
+      if(input.right) {
+        player.turn(PI/4,true);
+      }
+      if(input.left) {
+        player.turn(PI/4,false);
+      }
+    }
+    
+    
+  }
+  
   
 
   
