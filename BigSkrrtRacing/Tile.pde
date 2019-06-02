@@ -1,8 +1,7 @@
 public class Tile implements Clickable{
   public String material;
   public float x,y,size,staticFriction,kineticFriction;
-  PImage layer1;
-  PImage layer2;
+  ArrayList<PImage> layers;
   public Tile(float xcor,float ycor, float s) {
     x = xcor;
     y = ycor;
@@ -16,8 +15,9 @@ public class Tile implements Clickable{
   }
   
   public void setMaterial (String m) {
+    layers = new ArrayList<PImage>();
     material = m;
-    if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-") || material.equals("goal")) {
+    if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-") || material.equals("goal") || material.equals("goal-pre")) {
       staticFriction = 1.3;
       kineticFriction = 1;
     }
@@ -37,66 +37,54 @@ public class Tile implements Clickable{
     
   }
   public void display() {
-    image(layer1,x,y,size,size);
-    
-    if(layer2 != null) {
-      image(layer2,x,y,size,size);
+    for(PImage layer : layers) {
+      image(layer,x,y,size,size);
     }
-    
   } 
   
   void assignMaterial() {
     String[] parts = material.split(",");
-    if (parts[0].equals("road")) {
-      layer1 = road;
-    }
-    else if (parts[0].equals("grass")) {
-      layer1 = grass;
-    }
-    else if (parts[0].equals("water")) {
-      layer1 = water;
-    }
-    else if (parts[0].equals("mud")) {
-      layer1 = mud;
-    }
-    else if (parts[0].equals("goal")) {
-      layer1 = goal;
-    }
-    else if (parts[0].contains("road-painted-")) {
-      layer1 = roadPaint[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    else if (parts[0].contains("road-edge-")) {
-      layer1 = roadEdge[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    else if (parts[0].contains("road-corner-")) {
-      layer1 = roadCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    else if (parts[0].contains("grass-corner-")) {
-      layer1 = grassCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    else if (parts[0].contains("water-corner-")) {
-      layer1 = waterCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    else if (parts[0].contains("mud-corner-")) {
-      layer1 = mudCorner[Integer.parseInt(parts[0].substring(parts[0].length()-1))-1];
-    }
-    
-    if(parts.length > 1) {
-      if (parts[1].contains("road-corner-")) {
-        layer2 = roadCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+    for(String mat : parts) {
+      if (mat.equals("road")) {
+        layers.add(road);
       }
-      else if (parts[1].contains("grass-corner-")) {
-        layer2 = grassCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      else if (mat.equals("grass")) {
+        layers.add(grass);
       }
-      else if (parts[1].contains("water-corner-")) {
-        layer2 = waterCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      else if (mat.equals("water")) {
+        layers.add(water);
       }
-      else if (parts[1].contains("mud-corner-")) {
-        layer2 = mudCorner[Integer.parseInt(parts[1].substring(parts[1].length()-1))-1];
+      else if (mat.equals("mud")) {
+        layers.add(mud);
       }
-    }
-    else {
-      layer2 = null;
+      else if (mat.equals("goal")) {
+        layers.add(goal);
+      }
+      else if (mat.contains("road-painted-")) {
+        layers.add(roadPaint[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("road-edge-")) {
+        layers.add(roadEdge[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("road-corner-")) {
+        layers.add(roadCorner[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("grass-corner-")) {
+        layers.add(grassCorner[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("water-corner-")) {
+        layers.add(waterCorner[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("mud-corner-")) {
+        layers.add(mudCorner[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("barrier-corner-")) {
+        layers.add(barrierCorner[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+      else if (mat.contains("barrier-edge-")) {
+        layers.add(barrierEdge[Integer.parseInt(mat.substring(mat.length()-1))-1]);
+      }
+
     }
     
   }
