@@ -60,6 +60,9 @@ public class Tile implements Clickable{
       else if (mat.equals("goal")) {
         layers.add(goal);
       }
+       else if (mat.equals("goal-pre")) {
+        layers.add(preGoal);
+      }
       else if (mat.contains("road-painted-")) {
         layers.add(roadPaint[Integer.parseInt(mat.substring(mat.length()-1))-1]);
       }
