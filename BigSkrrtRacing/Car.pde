@@ -38,14 +38,6 @@ class Car {
   }
   
   void updateVectors(float k) {
-    if(pos.y > height || pos.y < 0) {
-      pos.y = Math.abs(height-pos.y);
-    }
-    if(pos.x > width || pos.x < 0) {
-      pos.x = Math.abs(width-pos.x);
-    }
-    
-    
     k *= mass;
     fric.setMag(k*(float)Math.pow(vel.mag()/2,2));
     if(driving) {
@@ -80,6 +72,13 @@ class Car {
     
     if(vel.mag() <= 2*k && force.mag() < 0.05) {
        vel.setMag(0.01);
+    }
+    
+    if(pos.y >= height || pos.y <= 0) {
+      pos.y = Math.min(height-1,Math.abs(height-pos.y));
+    }
+    if(pos.x >= width || pos.x <= 0) {
+      pos.x = Math.min(width-1,Math.abs(width-pos.x));
     }
   }
   
