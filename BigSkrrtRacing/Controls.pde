@@ -9,16 +9,6 @@ class Controls {
     brake = false;
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   void keyPressed() {
     if (keyCode == UP && up == false) {
       up = true;
