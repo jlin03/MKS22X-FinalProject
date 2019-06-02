@@ -32,6 +32,7 @@ Map m;
 
 Editor e;
 Level _l;
+TitleScreen t;
 
 void setup() {
   size(1200,900);
@@ -77,6 +78,9 @@ void setup() {
   _l = new Level(m);
   _l.display();
   
+  t = new TitleScreen();
+  t.display();
+  
   mode = "editor";
   
 }
@@ -89,6 +93,9 @@ void draw() {
   }
   if(mode.equals("level")) {
     _l.update();
+  }
+  if(mode.equals("title")) {
+    t.display();
   }
   
   
@@ -173,6 +180,9 @@ void keyPressed() {
     }
     if (key == 'l') {
       mode = "level";
+    }
+    if (key == 't') {
+      mode = "title";
     }
   }
 

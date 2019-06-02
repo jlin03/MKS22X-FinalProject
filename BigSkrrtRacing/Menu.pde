@@ -51,6 +51,10 @@ class Menu {
       buttons.add(new Tile(x+initDistX+(distScale*5),y+initDistY+(distScale*5),sideLength,"barrier-corner-4"));
       
     }
+    else if (type.equals("title")) {
+      buttons.add(new Button("Play","level",width/2,height/2-100,800/3,200));
+      buttons.add(new Button("Editor","editor",width/2,height/2+150,800/3,200));
+    }
     
   }
   
@@ -74,6 +78,10 @@ class Menu {
     else if(type.equals("currentBlock")) {
       imageMode(CORNER);
       image(currentBlock,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
+    }
+    else if (type.equals("title")) {
+      imageMode(CENTER);
+      image(pauseMenu,x,y,400,600);
     }
     
     for(Clickable c : buttons) {

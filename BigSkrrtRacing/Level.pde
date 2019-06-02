@@ -78,6 +78,8 @@ class Level {
     }
     time += ((int)timer%60)+":"+(int)((timer%1)*10000);
     
+    textSize(20);
+    textAlign(CENTER);
     text(time,width-100,20);
     text(laps,width-50,40);
     

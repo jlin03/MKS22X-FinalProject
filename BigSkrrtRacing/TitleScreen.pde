@@ -7,7 +7,9 @@ class TitleScreen {
     timer = 0;
   }
   
-  
+  void display() {
+    titleMenu.display();
+  }
   
   
   

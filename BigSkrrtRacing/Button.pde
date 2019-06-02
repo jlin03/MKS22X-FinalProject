@@ -23,7 +23,10 @@ class Button implements Clickable {
   void display() {
     imageMode(CENTER);
     image(button,x,y,sizeX,sizeY);
-    text(name,x-(sizeX/2),y,sizeY);
+    textAlign(CENTER);
+    textSize(50);
+    fill(255);
+    text(name,x,y+15,sizeY);
   }
   
   

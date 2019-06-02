@@ -31,6 +31,8 @@ class Editor {
   }
   
   void update() {
+    textSize(20);
+    textAlign(LEFT);
     text("Press 'm' to open the block selection menu.",0,20);
     
     currentBlock.display();
