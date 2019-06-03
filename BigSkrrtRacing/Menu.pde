@@ -52,8 +52,8 @@ class Menu {
       
     }
     else if (type.equals("title")) {
-      buttons.add(new Button("Play","level",width/2,height/2-100,800/3,200));
-      buttons.add(new Button("Editor","editor",width/2,height/2+150,800/3,200));
+      buttons.add(new Button("Play","level",width/2,height/2-100,200,150));
+      buttons.add(new Button("Editor","editor",width/2,height/2+150,200,150));
     }
     
   }
@@ -81,8 +81,7 @@ class Menu {
     }
     else if (type.equals("title")) {
       imageMode(CENTER);
-      image(pauseMenu,x,y,400,600);
-      image(logo,x,y-320,450,240);
+      //image(pauseMenu,x,y,400,600);
     }
     
     for(Clickable c : buttons) {
