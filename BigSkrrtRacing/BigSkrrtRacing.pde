@@ -98,6 +98,7 @@ void draw() {
     _l.update();
   }
   if(mode.equals("title")) {
+    t.update();
     t.display();
   }
   

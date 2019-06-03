@@ -64,6 +64,7 @@ class Level {
       onTrack = true;
     }
     else if(currentlyOn.material.equals("grass")) {
+      m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
       initialize();
     }
     
@@ -79,9 +80,9 @@ class Level {
     time += ((int)timer%60)+":"+(int)((timer%1)*10000);
     
     textSize(20);
-    textAlign(CENTER);
+    textAlign(LEFT);
     text(time,width-100,20);
-    text(laps,width-50,40);
+    text("Lap "+laps,width-50,40);
     
   }
   
