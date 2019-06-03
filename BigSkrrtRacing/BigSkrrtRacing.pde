@@ -72,6 +72,8 @@ void setup() {
   m = new Map();
   m.display();
   
+  maps.add(m);
+  
   e = new Editor(m);
   e.display();
   
@@ -82,7 +84,6 @@ void setup() {
   t.display();
   
   mode = "editor";
-  
 }
 void draw() {
   mX = constrain(mouseX,10,width-10);
