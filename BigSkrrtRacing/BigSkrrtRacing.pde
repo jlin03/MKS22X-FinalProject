@@ -7,6 +7,7 @@ PImage currentBlock;
 PImage pauseMenu;
 PImage winMenu;
 PImage button;
+PImage logo;
 
 PImage grass,mud,water,road,goal,preGoal;
 
@@ -46,6 +47,7 @@ void setup() {
   pauseMenu = loadImage("pauseMenu.png");
   winMenu = loadImage("winMenu.png");
   button = loadImage("button.png");
+  logo = loadImage("logo.png");
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");

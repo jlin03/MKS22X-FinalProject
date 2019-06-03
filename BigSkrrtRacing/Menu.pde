@@ -82,6 +82,7 @@ class Menu {
     else if (type.equals("title")) {
       imageMode(CENTER);
       image(pauseMenu,x,y,400,600);
+      image(logo,x,y-320,450,240);
     }
     
     for(Clickable c : buttons) {
