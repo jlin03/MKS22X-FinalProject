@@ -1,0 +1,449 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"solve",
+				"solveHelp"
+			],
+			[
+				"sqrt",
+				"sqrtHelp"
+			],
+			[
+				"put",
+				"putString"
+			],
+			[
+				"one",
+				"one"
+			],
+			[
+				"total",
+				"totalBet"
+			],
+			[
+				"nu",
+				"NullPointerException"
+			],
+			[
+				"Array",
+				"ArrayList"
+			],
+			[
+				"card",
+				"cardToRemove"
+			],
+			[
+				"get",
+				"getKeyType"
+			],
+			[
+				"player",
+				"playerDice"
+			],
+			[
+				"pla",
+				"playerScore"
+			],
+			[
+				"length",
+				"length-1"
+			],
+			[
+				"Inde",
+				"IndexOutOfBoundsException"
+			],
+			[
+				"Number",
+				"NumberFormatException"
+			],
+			[
+				"File",
+				"FileNotFoundException"
+			],
+			[
+				"Illega",
+				"IllegalArgumentException"
+			],
+			[
+				"Ille",
+				"IllegalArgumentException"
+			],
+			[
+				"toStr",
+				"toStringDebug"
+			],
+			[
+				"toS",
+				"toStringDebug"
+			],
+			[
+				"cap",
+				"ClassCastException"
+			],
+			[
+				"withda",
+				"withdraw"
+			],
+			[
+				"bank",
+				"bankConstructor"
+			],
+			[
+				"acco",
+				"accountID"
+			],
+			[
+				"fill",
+				"fill2DCopy"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"style",
+				"stylesheet"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"u",
+				"ul\tTag"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"align",
+				"align-self"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"list",
+				"list-style-type"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/Ben/MKS22X-FinalProject/README.md",
+			"settings":
+			{
+				"buffer_size": 1129,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Ben/MKS22X-FinalProject/BigSkrrtRacing/BigSkrrtRacing.pde",
+		"/C/Users/Ben/MKS22X-Queens/Driver",
+		"/C/Users/Ben/MKS22X-Recursion/recursion.java",
+		"/C/Users/Ben/MKS22X-Recursion/Driver.java",
+		"/C/Users/Ben/MKS22X-Recursion/Recursion.java",
+		"/C/Users/Ben/MKS22X-Queens/QueenBoard.java",
+		"/C/Users/Ben/MKS22X-Queens/Driver.java",
+		"/C/Users/Ben/MKS22X-Recursion/Sums.java",
+		"/C/Users/Ben/MKS21X-Recursion/Recursion.java",
+		"/C/Users/Ben/MKS21X-OrderedArrayList/OrderedArrayList.java",
+		"/C/Users/Ben/MKS21X-Numbers/RationalNumber.java",
+		"/C/Users/Ben/MKS21X-LinkedList/Driver.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Casino.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Roulette.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Poker.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Player.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Game.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Deck.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Ceelo.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Blackjack.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Card.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Box.java",
+		"/C/Users/Ben/MKS21X-FinalProject/Slots.java",
+		"/C/Users/Ben/MKS21X-FinalProject/README.md",
+		"/C/Users/Ben/MKS21X-LinkedList/Node.java",
+		"/C/Users/Ben/Desktop/Temp/Ceelo.java",
+		"/C/Users/Ben/Desktop/CompSci HW/05/Ceelo.java",
+		"/C/Users/Ben/Terminal Demo/TerminalDemo.java",
+		"/C/Users/Ben/Downloads/TerminalDemo.java",
+		"/C/Users/Ben/Downloads/lanterna.jar",
+		"/C/Users/Ben/MKS21X-LinkedList/MyLinkedList.java",
+		"/C/Users/Ben/MKS21X-Sorts/Sorts.java",
+		"/C/Users/Ben/Desktop/CompSci HW/05/Sorts.java",
+		"/C/Users/Ben/MKS21X-Sorts/selectionsort.java",
+		"/C/Users/Ben/MKS21X-MyString/driver.java",
+		"/C/Users/Ben/MKS21X-MyString/MyString.java",
+		"/C/Users/Ben/MKS21X-WordSearch/driver.java",
+		"/C/Users/Ben/MKS21X-WordSearch/WordSearch.java",
+		"/C/Users/Ben/MKS21X-WordSearch/Driver.java",
+		"/C/Users/Ben/MKS21X-2darraymethods/ArrayMethods.java",
+		"/C/Users/Ben/MKS21X-2darraymethods/Driver.java",
+		"/C/Users/Ben/MKS21X-OrderedArrayList/NoNullArrayList.java",
+		"/C/Users/Ben/MKS21X-SuperArray/driver.java",
+		"/C/Users/Ben/MKS21X-SuperArray/SuperArray.java",
+		"/C/Users/Ben/MKS21X-Triangle/TriangleDriver.java",
+		"/C/Users/Ben/MKS21X-Triangle/Point.java",
+		"/C/Users/Ben/MKS21X-Triangle/Triangle.java",
+		"/C/Users/Ben/Desktop/CompSci HW/MKS21X-Triangle/Triangle.java",
+		"/C/Users/Ben/Desktop/CompSci HW/MKS21X-Triangle/Point.java",
+		"/C/Users/Ben/Desktop/CompSci HW/MKS21X-Triangle/TriangleDriver.java",
+		"/C/Users/Ben/Desktop/CompSci HW/MKS21X-Triangle/PointDriver.java",
+		"/C/Users/Ben/MKS21X-Bank/driver.java",
+		"/C/Users/Ben/MKS21X-Bank/BankAccount.java",
+		"/C/Users/Ben/MKS21X-Bank/bankaccount.java",
+		"/C/Users/Ben/MKS21X-arrays/arraydemo.java",
+		"/C/Users/Ben/Desktop/CompSci HW/Codingbat Java/negus.java",
+		"/C/Users/Ben/MKS21X-CtoF/CtoFTester.java",
+		"/C/Users/Ben/Desktop/CompSci HW/pebble.java",
+		"/C/Users/Ben/Desktop/CompSci HW/Final Project/valid/finalproject.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Final Project/valid/index.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Final Project/valid/form.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Final Project/sampleTable.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/stylesheet2.css",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/stylesheet.css",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/homepage/stylesheet.css",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/homepage/profile.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs2.py",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs.py",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/brooks.txt",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/test.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/moby.txt",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/treasure.txt",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/dorian.txt",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/jabber.txt",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs3.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs2.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs1.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/03/madlibs.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/420/stylesheet.css",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/Python/tableprimes.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/Python/tablesquares.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/420/profile.html",
+		"/C/Users/Ben/Desktop/CompSci HW/Web/420/index.html",
+		"/C/Users/Ben/AppData/Local/Temp/Rar$EXa0.562/readme.html",
+		"/C/Users/Ben/Desktop/CompSci HW/website.html",
+		"/C/Users/Ben/Desktop/CompSci HW/index.html",
+		"/C/Users/Ben/Desktop/Random Websites/Spanish Site 2-26-17/stylesheet.css",
+		"/C/Users/Ben/Desktop/Jig Stuff/stylesheet2.css",
+		"/C/Users/Ben/Desktop/Jig Stuff/mcdonalds.html",
+		"/C/Users/Ben/Desktop/Jig Stuff/shake.html",
+		"/C/Users/Ben/Desktop/Jig Stuff/stylesheet.css",
+		"/C/Users/Ben/Desktop/Jig Stuff/subway.html"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Ben/MKS22X-FinalProject/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "BigSkrrtRacing.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

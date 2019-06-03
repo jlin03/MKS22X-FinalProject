@@ -55,6 +55,9 @@ class Menu {
       buttons.add(new Button("Play","level",width/2,height/2-100,200,150));
       buttons.add(new Button("Editor","editor",width/2,height/2+150,200,150));
     }
+    else if (type.equals("save")) {
+      buttons.add(new Button("Save Map", "save", width/2,height/2,200,150));
+    }
     
   }
   

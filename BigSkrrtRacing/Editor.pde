@@ -2,6 +2,7 @@ class Editor {
   Map m;
   Menu blockMenu;
   Menu currentBlock;
+  Menu saveMap;
   Tile current;
   boolean toggleMenu;
   String substance;
@@ -11,6 +12,7 @@ class Editor {
     m = _m;
     blockMenu = new Menu("blockSelection",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     currentBlock = new Menu("currentBlock",0,height-(float)80/450*min(height/2,width/2));
+    saveMap = new Menu("saveMap", 
     toggleMenu = false;
     substance = "grass";
     current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));
@@ -75,23 +77,26 @@ class Editor {
   }
   
   void saveMap(String num) {
-    /*
-    FileWriter savedMap = new FileWriter("Map-"+num,true);
-    String currentCol;
-    for (Tile[] colo: m.tiles) {
-      for (Tile t: colo) {
-        currentCol += t.material;
-        if (t.y < colo.length-1) {
-          currentCol += ";";
-        }
-        else {
-          savedMap.write(currentCol+"\n"); //each row of txt file represents one column of map data
-          currentCol = "";
+    try {
+      FileWriter savedMap = new FileWriter("Map-"+num,true);
+      String currentCol = "";
+      for (Tile[] colo: m.tiles) {
+        for (Tile t: colo) {
+          currentCol += t.material;
+          if (t.y < colo.length-1) {
+            currentCol += ";";
+          }
+          else {
+            savedMap.write(currentCol+"\n"); //each row of txt file represents one column of map data
+            currentCol = "";
+          }
         }
       }
+      savedMap.close();
     }
-    savedMap.close();
-    */
+    catch (IOException e) {
+      System.out.println("If you're reading this... may G-d help you");
+    }
   }
         
         
