@@ -6,7 +6,9 @@ class Editor {
   Tile current;
   boolean toggleMenu;
   String substance;
+  String action;
   int mapNum;
+  PrintWriter savedMap;
   
   public Editor(Map _m) {
     m = _m;
@@ -38,14 +40,19 @@ class Editor {
     text("Press 'm' to open the block selection menu.",0,20);
     
     currentBlock.display();
-    saveMap.display();
     
     if(substance != null) {
       current.setMaterial(substance);
       current.display();
     }
     
-    if(mousePressed && substance != null && !toggleMenu) {
+    action = saveMap.open();
+    if(action != null && action.equals("saveMap")) {
+      saveMap(Integer.toString(maps.size()));
+      println("saved");
+    }
+    
+    if(mousePressed && substance != null && !toggleMenu && !saveMap.buttons.get(0).isMouseOver()) {
       Tile selected = m.getTile(mX,mY);
       String[] layers = selected.material.split(",");
       if((substance.contains("-c") || substance.contains("r-e")) && !layers[layers.length-1].equals(substance)) {
@@ -78,26 +85,27 @@ class Editor {
   }
   
   void saveMap(String num) {
-    try {
-      FileWriter savedMap = new FileWriter("Map-"+num,true);
+    //try {
+      savedMap = createWriter("Map-"+num+".txt");
       String currentCol = "";
       for (Tile[] colo: m.tiles) {
         for (Tile t: colo) {
           currentCol += t.material;
-          if (t.y < colo.length-1) {
+          if ((t.y)/20 < colo.length-1) {
             currentCol += ";";
           }
           else {
-            savedMap.write(currentCol+"\n"); //each row of txt file represents one column of map data
+            savedMap.println(currentCol); //each row of txt file represents one column of map data
             currentCol = "";
           }
         }
       }
+      savedMap.flush();
       savedMap.close();
-    }
-    catch (IOException e) {
-      System.out.println("If you're reading this... may G-d help you");
-    }
+    //}
+   // catch (IOException e) {
+   //   System.out.println("If you're reading this... may G-d help you");
+   // }
   }
         
         
