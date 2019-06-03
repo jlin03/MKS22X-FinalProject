@@ -12,7 +12,7 @@ class Editor {
     m = _m;
     blockMenu = new Menu("blockSelection",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     currentBlock = new Menu("currentBlock",0,height-(float)80/450*min(height/2,width/2));
-    saveMap = new Menu("saveMap", 
+    saveMap = new Menu("saveMap",600,height-(float)80/450*min(height/2,width/2)); 
     toggleMenu = false;
     substance = "grass";
     current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));

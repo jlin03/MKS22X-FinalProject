@@ -4,6 +4,7 @@ PFont comic_sans;
 
 PImage blockSelection;
 PImage currentBlock;
+PImage saveMap;
 PImage pauseMenu;
 PImage winMenu;
 PImage button;
@@ -44,6 +45,7 @@ void setup() {
   
   blockSelection = loadImage("blockmenu.png");
   currentBlock = loadImage("currentBlock.png");
+  saveMap = loadImage("saveMap.png");
   pauseMenu = loadImage("pauseMenu.png");
   winMenu = loadImage("winMenu.png");
   button = loadImage("button.png");

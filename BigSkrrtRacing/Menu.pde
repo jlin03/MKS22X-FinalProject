@@ -56,7 +56,7 @@ class Menu {
       buttons.add(new Button("Editor","editor",width/2,height/2+150,200,150));
     }
     else if (type.equals("save")) {
-      buttons.add(new Button("Save Map", "save", width/2,height/2,200,150));
+      buttons.add(new Button("Save", "save", width/2,height/2,200,150));
     }
     
   }
@@ -88,7 +88,7 @@ class Menu {
     }
     else if (type.equals("saveMap")) {
       imageMode(CORNER);
-      image(currentBlock,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
+      image(saveMap,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
     }
     
     for(Clickable c : buttons) {
