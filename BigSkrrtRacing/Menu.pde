@@ -86,6 +86,10 @@ class Menu {
       imageMode(CENTER);
       //image(pauseMenu,x,y,400,600);
     }
+    else if (type.equals("saveMap")) {
+      imageMode(CORNER);
+      image(currentBlock,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
+    }
     
     for(Clickable c : buttons) {
       c.display();
