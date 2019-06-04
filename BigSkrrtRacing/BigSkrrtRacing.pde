@@ -114,65 +114,7 @@ void draw() {
     ls.update();
     ls.display();  
   }
-  
-  
-  m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
-  fill(0);
-  if(u == false && d == false) {
-    test.driving = false;
-  }
-  if(u == true || d == true) {
-    test.driving = true;
-  }
- 
-  /*if(keyPressed && key == CODED) {
-    if(hold) {
-      if(u) {
-        test.drive(1.3,true);
-      }
-      if(d) {
-        test.drive(1.3,false);
-      }
-      if(r) {
-        test.turn(PI/4,true);
-      }
-      if(l) {
-        test.turn(PI/4,false);
-      }
-    }
-    else {
-      hold=true;
-    }
-    
-  }
-  else {
-    test.drive(1,true);
-    hold=false;
-  }*/
-  
-  test.update(1);
-  
-  //vel lines
-  line(200,200,200+test.vel.x,200+test.vel.y);
-  line(200,200,200+test.vel.x,200);
-  line(200,200,200,200+test.vel.y);
-  text(test.vel.x + "," + test.vel.y,200,200);
-  
-  //accel lines
-  line(600,200,600+test.accel.x,200+test.accel.y);
-  line(600,200,600+test.accel.x,200);
-  line(600,200,600,200+test.accel.y);
-  text(test.accel.x + "," + test.accel.y,600,200);
-  
-  //force lines
-  line(400,400,400+test.force.x,400+test.force.y);
-  line(400,400,400+test.force.x,400);
-  line(400,400,400,400+test.force.y);
-  text(test.force.x + "," + test.force.y,400,400);
-  
-  text(test.driving + "",600,600);
-  
-  
+
 
 }
 
