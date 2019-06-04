@@ -110,10 +110,10 @@ void setup() {
   mode = "title";
 }
 void draw() {
-  mX = constrain(mouseX,10,width-10);
+  mX = constrain(mouseX,10,width-10);      //keeps mouseX and mouseY constrained so arrayIndexOutofBounds doesn't occur in the editor
   mY = constrain(mouseY,10,height-10);
   
-  if(mode.equals("editor")) {
+  if(mode.equals("editor")) {              //changes the screen depending on what mode the game is in
     e.update();
   }
   if(mode.equals("level")) {
@@ -128,7 +128,7 @@ void draw() {
     ls.update();
   }
   
-  if(toggleESC) {
+  if(toggleESC) {                         //a toggle menu triggered by the tilde '~' key; allows player to go back to title screen or restart the map
     String selection = esc.open();
     if(selection != null) {
       if(selection.equals("back")) {
@@ -151,7 +151,7 @@ void draw() {
 }
 
 void keyPressed() {
-    if (keyCode == UP && u == false) {
+    if (keyCode == UP && u == false) {                        //key commands for driving controls
       u = true;
     }
     if (keyCode == DOWN && d == false) {
