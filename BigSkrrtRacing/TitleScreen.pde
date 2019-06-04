@@ -10,7 +10,6 @@ class TitleScreen {
   
   public TitleScreen() {
     m = maps.get((int)random(maps.size()));
-    m = maps.get(0);
     titleMenu = new Menu("title",width/2,height/2);
     levelSelector = new Menu("levelSelector",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     timer = 0;
@@ -56,6 +55,10 @@ class TitleScreen {
       m.display();
     popMatrix();
     imageMode(CENTER);
+    
+    textSize(20);
+    textAlign(BOTTOM);
+    text("Press 's' to open the level select menu. Current level selected: " + selectedLevel,0,20);
 
 
     titleMenu.display();

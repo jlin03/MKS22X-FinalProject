@@ -5,6 +5,8 @@ PFont comic_sans;
 
 PImage blockSelection;
 PImage currentBlock;
+PImage levelMenu;
+PImage levelButton;
 PImage saveMap;
 PImage pauseMenu;
 PImage winMenu;
@@ -27,7 +29,7 @@ PImage[] barrierEdge = new PImage[4];
 ArrayList<Map> maps;
 
 boolean u,d,r,l,b;
-String mode;
+String mode,selectedLevel;
 float mX,mY;
 
 Car test;
@@ -58,6 +60,8 @@ void setup() {
   road = loadImage("road.png");
   goal = loadImage("goal.png");
   preGoal = loadImage("goal-pre.png");
+  levelMenu = loadImage("levelMenu.png");
+  levelButton = loadImage("levelButton.png");
   
   for(int i = 0; i < 4;i++) {
     grassCorner[i] = loadImage("grass-c" +(i+1)+".png");
@@ -77,11 +81,6 @@ void setup() {
   m.display();
   
   maps.add(m);
-  File f = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\Map-2.txt");
-  String currentDirectory = sketchPath();
-      System.out.println("The current sketchPath is " + currentDirectory);
-  Map m2 = new Map(f);
-  maps.add(m2);
   e = new Editor(m);
   e.display();
   
