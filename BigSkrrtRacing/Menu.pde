@@ -76,6 +76,7 @@ class Menu {
         }
         yOffset += 300;
       }*/
+      buttons.add(new Button("Map-2","loadmap",width/2,height/2,200,150));
     }
   }
   
@@ -110,7 +111,7 @@ class Menu {
     }
     else if (type.equals("levelSelect")) {
       imageMode(CENTER);
-      image(levelMenu,width/2,height/2,1200,900);
+      image(levelMenu,x,y);
     }
     
     for(Clickable c : buttons) {

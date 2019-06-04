@@ -1,20 +1,20 @@
 class LevelSelect {
-  Menu titleMenu;
+  Menu levelSelect;
   String selection;
   Map m;
   float scale;
   
   public LevelSelect() {
     m = maps.get((int)random(maps.size()));
-    titleMenu = new Menu("title",width/2,height/2);
+    levelSelect = new Menu("levelSelect",width/2,height/2);
     scale = 1;
     selection = null;
   }
   
   void update() {
-    selection = titleMenu.open();
+    selection = levelSelect.open();
     if(selection != null && selection.equals("level")) {
-      mode = "title";
+      mode = "levelSelect";
     }
     if(selection != null && selection.equals("editor")) {
       mode = "editor";
@@ -30,7 +30,7 @@ class LevelSelect {
     popMatrix();
     imageMode(CENTER);
 
-    titleMenu.display();
+    levelSelect.display();
 
   }
   
