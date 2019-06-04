@@ -24,7 +24,12 @@ class Button implements Clickable {
     imageMode(CENTER);
     image(button,x,y,sizeX,sizeY);
     textAlign(CENTER);
-    textSize(50);
+    if (action.equals("loadmap")) {
+      textSize(15);
+    }
+    else {
+      textSize(50);
+    }
     fill(255);
     text(name,x,y+15,sizeY);
   }

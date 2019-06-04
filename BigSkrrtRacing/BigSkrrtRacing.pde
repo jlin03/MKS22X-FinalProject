@@ -73,12 +73,13 @@ void setup() {
   }
   
   textFont(comic_sans);
-  
   m = new Map();
   m.display();
   
   maps.add(m);
-  
+  File f = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\Map-2.txt");
+  Map m2 = new Map(f);
+  maps.add(m2);
   e = new Editor(m);
   e.display();
   
@@ -88,9 +89,7 @@ void setup() {
   t = new TitleScreen();
   t.display();
   
-  //s = new LevelSelect();
-  
-  mode = "editor";
+  mode = "title";
 }
 void draw() {
   mX = constrain(mouseX,10,width-10);

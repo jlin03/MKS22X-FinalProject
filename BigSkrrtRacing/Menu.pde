@@ -65,11 +65,16 @@ class Menu {
           return name.endsWith(".txt");
         }
       });
-      float deviation = 100;
-      for (File f: mapFiles) {
-        String name = f.getName();
-        buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",deviation,width/2,150,100));
-        deviation += 200;
+      int mapInd = 0;
+      float yOffset = height/4.0;
+      for (int i = 0; i < 6; i++) {
+        float xOffset = width/3.0;
+        for (int j = 0; j < 3; j++) {
+          String name = mapFiles[mapInd].getName();
+          buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",xOffset,yOffset,75,25));
+          xOffset += 100;
+        }
+        yOffset += 50;
       }
     }
   }
@@ -87,7 +92,7 @@ class Menu {
   }
   
   void display() {
-    if(type.equals("blockSelection")) {
+    if(type.equals("blockSelection") || type.equals("levelSelect")) {
       imageMode(CORNER);
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }

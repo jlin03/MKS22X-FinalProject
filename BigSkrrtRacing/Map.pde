@@ -13,25 +13,27 @@ public class Map {
     }
   }
   
-  public Map(String saveFile) {
+  public Map(File saveFile) {
     rows = height / 20;
     cols = width / 20;
     tiles = new Tile[cols][rows];
-    File file = new File(saveFile);
+    println("hello");
     try {
-      Scanner s = new Scanner(file);
+      Scanner s = new Scanner(saveFile);
+      println("something happened");
       int c = 0;
-      while (s.hasNextLine()) {
+      while (s.hasNextLine() && c < cols) {
         String currentCol = s.nextLine();
         String[] materials = currentCol.split(";");
-        for (int r = 0; r < materials.length; r++) {
-          tiles[c][r] = new Tile(c*20,r*20,20,materials[r]);  
+        for (int r = 0; r < rows; r++) {
+          tiles[c][r] = new Tile(c*20,r*20,20,materials[r]);
         }
         c++;
       }
       s.close();  
     }
     catch (FileNotFoundException e) {
+      System.out.println("The file don't exist");
     }
   }
   
