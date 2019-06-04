@@ -26,8 +26,8 @@ public class Tile implements Clickable{
       kineticFriction = 0.7;
     }
     if (material.equals("mud") || material.contains("mud-corner-")){
-      staticFriction = 10;
-      kineticFriction = 10;
+      staticFriction = 2.5;
+      kineticFriction = 2.2;
     }
     if (material.equals("water") || material.contains("water-corner-")){
       staticFriction = 0.5;

@@ -19,14 +19,22 @@ class Level {
   void initialize() {
     float[] startCoordinates = new float[2];
     float angle = 0;
+    int count = 0;
+    int countG = 0;
     for(Tile[] tiles : m.tiles) {
       for(Tile t : tiles) {
         if (t.material.equals("goal-pre")) {
-          startCoordinates[0] = t.x;
-          startCoordinates[1] = t.y;
+          if(count == 3) {
+            startCoordinates[0] = t.x;
+            startCoordinates[1] = t.y;
+          }
+          count++;
         }
         if (t.material.equals("goal")) {
-          angle = atan(t.y-startCoordinates[1]/t.x-startCoordinates[0]);
+          if(countG == 3) {
+            angle = atan(t.y-startCoordinates[1]/t.x-startCoordinates[0])+PI/2;
+          }
+          countG++;
         }
       }
     }

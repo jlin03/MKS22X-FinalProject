@@ -61,11 +61,11 @@ class Car {
     }
    
     vel = momentum.copy().setMag(momentum.mag()/mass);
-    //vel.limit(mass*7);
+    vel.limit(mass*10);
 
     pos.add(vel);
     
-    momentum.setMag(Math.max(0,(float)(momentum.mag()-(k*mass))));
+    momentum.setMag(Math.max(0,(float)(momentum.mag()-(k*mass*1.5))));
     
     //if(vel.mag() > 2*k && force.mag() < 0.05) {
     //  momentum.add(PVector.fromAngle(vel.heading()+PI,fric.copy()));
@@ -93,10 +93,10 @@ class Car {
       temp.setMag(vel.mag());
       float rad = tan(90-tireAngle) * carLength;
       if(right) {
-        angle += cos(tireAngle)*temp.y/rad;
+        angle += cos(tireAngle)*temp.y*5/rad;
       }
       else {
-        angle -= cos(tireAngle)*temp.y/rad;
+        angle -= cos(tireAngle)*temp.y*5/rad;
       }
     }
   }
