@@ -125,6 +125,10 @@ class Menu {
       imageMode(CENTER);
       image(pauseMenu,x,y,400,600);
     }
+    else if(type.equals("win")) {
+      imageMode(CENTER);
+      image(winMenu,x,y,600,450);
+    }
     
     for(Clickable c : buttons) {
       c.display();
