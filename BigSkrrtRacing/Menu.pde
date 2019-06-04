@@ -58,7 +58,20 @@ class Menu {
     else if (type.equals("saveMap")) {
       buttons.add(new Button("Save", "saveMap", 1133,866,130,56));
     }
-    
+    else if (type.equals("levelSelect")) {
+      File mapBoys = new File(".");
+      File[] mapFiles = mapBoys.listFiles(new FilenameFilter() {
+        public boolean accept(File dir, String name) {
+          return name.endsWith(".txt");
+        }
+      });
+      float deviation = 100;
+      for (File f: mapFiles) {
+        String name = f.getName();
+        buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",deviation,width/2,150,100));
+        deviation += 200;
+      }
+    }
   }
   
   String open() {

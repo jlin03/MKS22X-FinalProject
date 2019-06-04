@@ -1,6 +1,5 @@
-import java.io.FileWriter;
+import java.io.*;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
 
 PFont comic_sans;
 
@@ -88,6 +87,8 @@ void setup() {
   
   t = new TitleScreen();
   t.display();
+  
+  //s = new LevelSelect();
   
   mode = "editor";
 }
