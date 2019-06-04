@@ -3,7 +3,7 @@ class Button implements Clickable {
   String action;
   float sizeX,sizeY,x,y;
   
-  public Button(String n, String a, float _x, float _y, float sX, float sY) {
+  public Button(String n, String a, float _x, float _y, float sX, float sY) { //initializes a button with a name that is displayed, an action value, its coordinates and size
     name = n;
     action = a;
     x = _x;
@@ -12,18 +12,18 @@ class Button implements Clickable {
     sizeY = sY;
   }
   
-  String getAction() {
+  String getAction() {                  //returns the action of the button when called
     if (action.equals("loadmap")) {
       return name;
     }
     return action;
   }
   
-  boolean isMouseOver() {
+  boolean isMouseOver() {              //checks to see if the mouse is over the button
     return(mouseX>x-(sizeX/2) && mouseX<x+(sizeX/2) && mouseY>y-(sizeY/2) && mouseY<y+(sizeY/2));
   }
   
-  void display() {
+  void display() {                  //displays button with name over it
     imageMode(CENTER);
     
     textAlign(CENTER);
