@@ -34,7 +34,7 @@ class Level {
     player = new Car(angle,startCoordinates[0],startCoordinates[1],50,25,1,0.2,3);
     timer = 0;
     time = "100000";
-    laps = 4;
+    laps = 0;
     animVel = 0;
   }
   
