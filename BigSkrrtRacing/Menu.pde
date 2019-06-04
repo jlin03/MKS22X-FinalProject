@@ -66,9 +66,9 @@ class Menu {
         }
       });
       int mapInd = 0;
-      float yOffset = 150;
-      float xOffset = 200;
-      while (mapInd < mapFiles.length && yOffset < 750) {
+      float yOffset = 100;
+      float xOffset = 150;
+      while (mapInd < mapFiles.length && yOffset < 850) {
         String name = mapFiles[mapInd].getName();
         buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",xOffset,yOffset,100,50));
         if (xOffset <= 1000) {
@@ -78,6 +78,7 @@ class Menu {
           xOffset = 150;
           yOffset += 100;
         }
+        mapInd++;
       }
     }
   }
