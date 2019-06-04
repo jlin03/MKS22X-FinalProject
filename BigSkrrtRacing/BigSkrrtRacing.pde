@@ -38,6 +38,7 @@ Map m;
 Editor e;
 Level _l;
 TitleScreen t;
+LevelSelect ls;
 
 void setup() {
   size(1200,900);
@@ -90,6 +91,9 @@ void setup() {
   t = new TitleScreen();
   t.display();
   
+  ls = new LevelSelect();
+  //ls.display();
+  
   mode = "title";
 }
 void draw() {
@@ -105,6 +109,9 @@ void draw() {
   if(mode.equals("title")) {
     t.update();
     t.display();
+  }
+  if (mode.equals("levelSelect") || mode.equals("levelEdit")) {
+    ls.display();  
   }
   
   

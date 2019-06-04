@@ -109,7 +109,7 @@ class Menu {
       image(saveMap,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
     }
     else if (type.equals("levelSelect")) {
-      imageMode(CENTER);
+      imageMode(CORNER);
       image(levelMenu,x,y,min(height,width),min(height,width));
     }
     

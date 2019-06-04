@@ -38,7 +38,6 @@ class Editor {
     textSize(20);
     textAlign(LEFT);
     text("Press 'm' to open the block selection menu.",0,20);
-    text("Press 's' to open the level select menu. Current level selected: " + selectedLevel,0,40);
     
     currentBlock.display();
     
