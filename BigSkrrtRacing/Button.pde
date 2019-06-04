@@ -22,13 +22,15 @@ class Button implements Clickable {
   
   void display() {
     imageMode(CENTER);
-    image(button,x,y,sizeX,sizeY);
+    
     textAlign(CENTER);
     if (action.equals("loadmap")) {
-      textSize(15);
+      image(levelButton,x,y,sizeX,sizeY);
+      textSize(30);
     }
     else {
       textSize(50);
+      image(button,x,y,sizeX,sizeY);
     }
     fill(255);
     text(name,x,y+15,sizeY);

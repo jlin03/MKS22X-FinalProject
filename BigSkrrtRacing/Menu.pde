@@ -92,7 +92,7 @@ class Menu {
   }
   
   void display() {
-    if(type.equals("blockSelection") || type.equals("levelSelect")) {
+    if(type.equals("blockSelection")) {
       imageMode(CORNER);
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
     }
@@ -107,6 +107,10 @@ class Menu {
     else if (type.equals("saveMap")) {
       imageMode(CORNER);
       image(saveMap,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
+    }
+    else if (type.equals("levelSelect")) {
+      imageMode(CENTER);
+      image(levelMenu,x,y,min(height,width),min(height,width));
     }
     
     for(Clickable c : buttons) {

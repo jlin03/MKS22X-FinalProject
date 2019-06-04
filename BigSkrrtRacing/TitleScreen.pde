@@ -55,11 +55,6 @@ class TitleScreen {
       m.display();
     popMatrix();
     imageMode(CENTER);
-    
-    textSize(20);
-    textAlign(BOTTOM);
-    text("Press 's' to open the level select menu. Current level selected: " + selectedLevel,0,20);
-
 
     titleMenu.display();
     image(logo,width/2,height/2-320,450*logoH,240*logoH);
