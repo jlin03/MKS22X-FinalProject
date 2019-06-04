@@ -59,7 +59,7 @@ class Menu {
       buttons.add(new Button("Save", "saveMap", 1133,866,130,56));
     }
     else if (type.equals("levelSelect")) {
-      /*File mapBoys = new File(sketchPath());
+      File mapBoys = new File(sketchPath());
       File[] mapFiles = mapBoys.listFiles(new FilenameFilter() {
         public boolean accept(File dir, String name) {
           return name.endsWith(".txt");
@@ -67,16 +67,18 @@ class Menu {
       });
       int mapInd = 0;
       float yOffset = 150;
-      for (int i = 0; i < 6; i++) {
-        float xOffset = 200;
-        for (int j = 0; j < 3; j++) {
-          String name = mapFiles[mapInd].getName();
-          buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",xOffset,yOffset,75,25));
-          xOffset += 400;
+      float xOffset = 200;
+      while (mapInd < mapFiles.length && yOffset < 750) {
+        String name = mapFiles[mapInd].getName();
+        buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",xOffset,yOffset,100,50));
+        if (xOffset <= 1000) {
+          xOffset += 150;
         }
-        yOffset += 300;
-      }*/
-      buttons.add(new Button("Map-2","loadmap",width/2,height/2,200,150));
+        else {
+          xOffset = 150;
+          yOffset += 100;
+        }
+      }
     }
   }
   

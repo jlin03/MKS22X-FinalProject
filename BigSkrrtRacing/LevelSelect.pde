@@ -16,7 +16,9 @@ class LevelSelect {
   void update() {
     selection = levelSelect.open();
     if(selection != null && !willEditMap) {
-      File nextMap = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\"+selection+".txt");
+      delay(300);
+      println(sketchPath()+"\\"+selection+".txt");
+      File nextMap = new File(sketchPath()+"\\"+selection+".txt");
       Map newMap = new Map(nextMap);
       maps.add(newMap);
       m = newMap;
@@ -24,7 +26,9 @@ class LevelSelect {
       _l = new Level(m);
     }
     if(selection != null && willEditMap) {
-      File nextMap = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\"+selection+".txt");
+      delay(300);
+      println(sketchPath()+"\\"+selection+".txt");
+      File nextMap = new File(sketchPath()+"\\"+selection+".txt");
       Map newMap = new Map(nextMap);
       maps.add(newMap);
       m = newMap;

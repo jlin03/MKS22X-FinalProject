@@ -13,6 +13,9 @@ class Button implements Clickable {
   }
   
   String getAction() {
+    if (action.equals("loadmap")) {
+      return name;
+    }
     return action;
   }
   

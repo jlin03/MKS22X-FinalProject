@@ -20,10 +20,12 @@ class TitleScreen {
   void update() {
     selection = titleMenu.open();
     if(selection != null && selection.equals("level")) {
+      delay(750);
       mode = "levelSelect";
       ls = new LevelSelect(false);
     }
     if(selection != null && selection.equals("editor")) {
+      delay(750);
       mode = "levelSelect";
       ls = new LevelSelect(true);
     } 
