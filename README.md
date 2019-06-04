@@ -25,3 +25,7 @@ Jerry: did some more momentum and angle tuning for the car; drew all the tile pi
 Ben: Tested initial structure of editor, made changes to better integrate Tile and Map with the new modular editor class instead of hard coded map information
 
 6/1/19 - Jerry: added a current block tab on editor as an extra touch, added a new goal block and allowed it to be selected, the block selection menu is now generalized to any screen size, ported over controls from the main class into a separate controls class, started making the level class.
+
+6/2/19 - Jerry: made it so that tiles can have as many stacks of textures placed on them as the map maker desires, added more tile types to be used to build the map, 90% completed the level class which is where the actual game takes place(need to work on the winning menu), created the title menu for intuitive transition between different parts of the game, tried to implement collision(failed);will try again if i have time. 
+
+6/3/19 - Jerry: made the title screen and game level somewhat more presentable
