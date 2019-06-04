@@ -34,6 +34,7 @@ class LevelSelect {
       m = newMap;
       mode = "editor";
       e = new Editor(m);
+      e.display();
     } 
     
   }
