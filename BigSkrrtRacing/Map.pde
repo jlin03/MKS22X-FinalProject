@@ -17,10 +17,9 @@ public class Map {
     rows = height / 20;
     cols = width / 20;
     tiles = new Tile[cols][rows];
-    println("hello");
     try {
       Scanner s = new Scanner(saveFile);
-      println("something happened");
+      println("Map created");
       int c = 0;
       while (s.hasNextLine() && c < cols) {
         String currentCol = s.nextLine();

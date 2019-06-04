@@ -11,25 +11,25 @@ class LevelSelect {
     levelSelect = new Menu("levelSelect",width/2,height/2);
     scale = 1;
     selection = null;
-    println(willEditMap);
   }
   
   void update() {
     selection = levelSelect.open();
     if(selection != null && !willEditMap) {
-      println(sketchPath()+"\\"+selection+".txt");
-      File nextMap = new File(sketchPath()+selection+".txt");
+      File nextMap = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\"+selection+".txt");
       Map newMap = new Map(nextMap);
       maps.add(newMap);
       m = newMap;
       mode = "level";
+      _l = new Level(m);
     }
     if(selection != null && willEditMap) {
-      File nextMap = new File(sketchPath()+selection+".txt");
+      File nextMap = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\"+selection+".txt");
       Map newMap = new Map(nextMap);
       maps.add(newMap);
       m = newMap;
       mode = "editor";
+      e = new Editor(m);
     } 
     
   }
@@ -41,7 +41,6 @@ class LevelSelect {
       m.display();
     popMatrix();
     imageMode(CENTER);
-
     levelSelect.display();
 
   }

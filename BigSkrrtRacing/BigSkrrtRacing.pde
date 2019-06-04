@@ -110,33 +110,33 @@ void draw() {
     t.update();
     t.display();
   }
-  if (mode.equals("levelSelect") || mode.equals("levelEdit")) {
+  if (mode.equals("levelSelect")) {
     ls.update();
     ls.display();  
   }
   
   
-  /*m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
+  m.update(test.pos.x,test.pos.y,(float)Math.sqrt(Math.pow(test.carLength,2)+Math.pow(test.carWidth,2)));
   fill(0);
-  if(up == false && down == false) {
+  if(u == false && d == false) {
     test.driving = false;
   }
-  if(up == true || down == true) {
+  if(u == true || d == true) {
     test.driving = true;
   }
  
-  if(keyPressed && key == CODED) {
+  /*if(keyPressed && key == CODED) {
     if(hold) {
-      if(up) {
+      if(u) {
         test.drive(1.3,true);
       }
-      if(down) {
+      if(d) {
         test.drive(1.3,false);
       }
-      if(right) {
+      if(r) {
         test.turn(PI/4,true);
       }
-      if(left) {
+      if(l) {
         test.turn(PI/4,false);
       }
     }
@@ -148,7 +148,7 @@ void draw() {
   else {
     test.drive(1,true);
     hold=false;
-  }
+  }*/
   
   test.update(1);
   
@@ -172,7 +172,7 @@ void draw() {
   
   text(test.driving + "",600,600);
   
-  */
+  
 
 }
 
