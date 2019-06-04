@@ -28,7 +28,7 @@ PImage[] barrierEdge = new PImage[4];
 
 ArrayList<Map> maps;
 
-boolean u,d,r,l,b;
+boolean u,d,r,l,b,toggleESC;
 String mode,selectedLevel;
 float mX,mY;
 
@@ -39,6 +39,7 @@ Editor e;
 Level _l;
 TitleScreen t;
 LevelSelect ls;
+Menu esc;
 
 void setup() {
   size(1200,900);
@@ -100,6 +101,8 @@ void setup() {
   
   ls = new LevelSelect(false);
   ls.display();
+ 
+  esc = new Menu("pause",width/2,height/2);
   
   mode = "title";
 }
@@ -121,7 +124,25 @@ void draw() {
     ls.display();  
     ls.update();
   }
-
+  
+  if(toggleESC) {
+    String selection = esc.open();
+    if(selection != null) {
+      if(selection.equals("back")) {
+        mode = "title";
+      }
+      if(selection.equals("reload")) {
+        if(mode.equals("level")) {
+          _l.initialize();
+        }
+        if(mode.equals("editor")) {
+          mode = "levelSelect";
+        }
+        
+      }
+    }
+    
+  }
 
 }
 
@@ -141,14 +162,8 @@ void keyPressed() {
     if ((key == 'b' || key == 'B') && b == false) {
       b = true;
     }
-    if (key == 'e') {
-      mode = "editor";
-    }
-    if (key == 'l') {
-      mode = "level";
-    }
-    if (key == 't') {
-      mode = "title";
+    if (key == '`') {
+      toggleESC = !toggleESC;
     }
   }
 

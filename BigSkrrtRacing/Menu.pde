@@ -81,7 +81,12 @@ class Menu {
         mapInd++;
       }
     }
+    else if(type.equals("pause")) {
+      buttons.add(new Button("Retry", "reload",x,y-150,300,200));
+      buttons.add(new Button("Title", "back",x,y+150,300,200));
+    }
   }
+  
   
   String open() {
     display();
@@ -115,6 +120,10 @@ class Menu {
     else if (type.equals("levelSelect")) {
       imageMode(CENTER);
       image(levelMenu,x,y);
+    }
+    else if(type.equals("pause")) {
+      imageMode(CENTER);
+      image(pauseMenu,x,y,400,600);
     }
     
     for(Clickable c : buttons) {
