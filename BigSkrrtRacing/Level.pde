@@ -36,6 +36,7 @@ class Level {
     time = "100000";
     laps = 0;
     animVel = 0;
+    display();
   }
   
   void update() {
