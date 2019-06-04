@@ -79,7 +79,7 @@ void setup() {
   }
   
   textFont(comic_sans);
-  m = new Map();
+  m = new Map("Lawn.txt");
   m.display();
   
   File mapBoys = new File(sketchPath());
