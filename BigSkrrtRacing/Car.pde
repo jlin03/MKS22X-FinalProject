@@ -93,10 +93,10 @@ class Car {
       temp.setMag(vel.mag());
       float rad = tan(90-tireAngle) * carLength;
       if(right) {
-        angle += cos(tireAngle)*temp.y*5/rad;
+        angle += cos(tireAngle)*temp.y*3/rad;
       }
       else {
-        angle -= cos(tireAngle)*temp.y*5/rad;
+        angle -= cos(tireAngle)*temp.y*3/rad;
       }
     }
   }

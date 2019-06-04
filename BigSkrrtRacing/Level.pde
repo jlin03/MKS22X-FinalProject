@@ -34,7 +34,7 @@ class Level {
         }
         if (t.material.equals("goal")) {
           if(countG == 3) {
-            angle = atan(t.y-startCoordinates[1]/t.x-startCoordinates[0])+PI/2;
+            angle = atan((t.y-startCoordinates[1])/(t.x-startCoordinates[0])+0.01)+PI;
           }
           countG++;
         }
@@ -102,7 +102,7 @@ class Level {
           initialize();
         }
       }
-      if(laps<0) {
+      if(laps<1) {
         initialize();
       }
       
