@@ -1,5 +1,6 @@
 class TitleScreen {
   Menu titleMenu;
+  Menu levelSelector;
   int timer;
   String selection;
   Map m;
@@ -9,7 +10,9 @@ class TitleScreen {
   
   public TitleScreen() {
     m = maps.get((int)random(maps.size()));
+    m = maps.get(0);
     titleMenu = new Menu("title",width/2,height/2);
+    levelSelector = new Menu("levelSelector",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     timer = 0;
     scale = 1;
     logoH = 5;

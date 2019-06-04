@@ -78,6 +78,8 @@ void setup() {
   
   maps.add(m);
   File f = new File("C:\\Users\\Ben\\MKS22X-FinalProject\\BigSkrrtRacing\\Map-2.txt");
+  String currentDirectory = sketchPath();
+      System.out.println("The current sketchPath is " + currentDirectory);
   Map m2 = new Map(f);
   maps.add(m2);
   e = new Editor(m);

@@ -59,7 +59,7 @@ class Menu {
       buttons.add(new Button("Save", "saveMap", 1133,866,130,56));
     }
     else if (type.equals("levelSelect")) {
-      File mapBoys = new File(".");
+      File mapBoys = new File(sketchPath());
       File[] mapFiles = mapBoys.listFiles(new FilenameFilter() {
         public boolean accept(File dir, String name) {
           return name.endsWith(".txt");
