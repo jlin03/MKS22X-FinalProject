@@ -91,7 +91,7 @@ void setup() {
   t = new TitleScreen();
   t.display();
   
-  ls = new LevelSelect();
+  ls = new LevelSelect(false);
   ls.display();
   
   mode = "title";

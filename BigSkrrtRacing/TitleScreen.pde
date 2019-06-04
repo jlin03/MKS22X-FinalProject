@@ -21,9 +21,11 @@ class TitleScreen {
     selection = titleMenu.open();
     if(selection != null && selection.equals("level")) {
       mode = "levelSelect";
+      ls = new LevelSelect(false);
     }
     if(selection != null && selection.equals("editor")) {
-      mode = "editor";
+      mode = "levelSelect";
+      ls = new LevelSelect(true);
     } 
     
     timer++;

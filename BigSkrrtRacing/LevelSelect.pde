@@ -1,22 +1,34 @@
 class LevelSelect {
   Menu levelSelect;
   String selection;
+  boolean willEditMap;
   Map m;
   float scale;
   
-  public LevelSelect() {
+  public LevelSelect(boolean edit) {
+    willEditMap = edit;
     m = maps.get((int)random(maps.size()));
     levelSelect = new Menu("levelSelect",width/2,height/2);
     scale = 1;
     selection = null;
+    println(willEditMap);
   }
   
   void update() {
     selection = levelSelect.open();
-    if(selection != null && selection.equals("level")) {
-      mode = "levelSelect";
+    if(selection != null && !willEditMap) {
+      println(sketchPath()+"\\"+selection+".txt");
+      File nextMap = new File(sketchPath()+selection+".txt");
+      Map newMap = new Map(nextMap);
+      maps.add(newMap);
+      m = newMap;
+      mode = "level";
     }
-    if(selection != null && selection.equals("editor")) {
+    if(selection != null && willEditMap) {
+      File nextMap = new File(sketchPath()+selection+".txt");
+      Map newMap = new Map(nextMap);
+      maps.add(newMap);
+      m = newMap;
       mode = "editor";
     } 
     
