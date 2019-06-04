@@ -138,6 +138,7 @@ void draw() {
         if(mode.equals("editor")) {
           mode = "levelSelect";
         }
+        toggleESC = !toggleESC;
         
       }
     }

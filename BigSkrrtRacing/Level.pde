@@ -8,6 +8,8 @@ class Level {
   Menu winScreen;
   int animVel;
   String time;
+  float dangerTimer;
+  float goalTimer;
   
   public Level(Map _m) {
     m = _m;
@@ -42,8 +44,9 @@ class Level {
     player = new Car(angle,startCoordinates[0],startCoordinates[1],50,25,1,0.2,3);
     timer = 0;
     time = "100000";
-    laps = 0;
+    laps = 1;
     animVel = 0;
+    dangerTimer = 0;
     display();
   }
   
@@ -77,19 +80,29 @@ class Level {
         }
       }
   
-      if(currentlyOn.material.contains("goal-pre") && onTrack) {
+      if(currentlyOn.material.contains("goal-pre") && onTrack && goalTimer < 0.1) {
         laps++;
         onTrack = false;
+        goalTimer = 1;
       }
       else if(currentlyOn.material.equals("goal") && onTrack) {
         laps--;
         onTrack = false;
+        goalTimer = 1;
       }
       else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre") || currentlyOn.material.equals("grass"))) {
         onTrack = true;
+        dangerTimer = 0;
+        goalTimer -= 1.0/60;
       }
       else if(currentlyOn.material.equals("grass")) {
         m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
+        dangerTimer += 1.0/60;
+        if(dangerTimer > 0.1 || goalTimer > 0.8) {
+          initialize();
+        }
+      }
+      if(laps<0) {
         initialize();
       }
       
