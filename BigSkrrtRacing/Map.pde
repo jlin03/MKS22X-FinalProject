@@ -17,7 +17,15 @@ public class Map {
     rows = height / 20;
     cols = width / 20;
     tiles = new Tile[cols][rows];
-    try {
+    String[] colos = loadStrings(saveFile);
+    for (int c = 0; c < cols; c++) {
+      String[]materials = colos[c].split(";");
+      for (int r = 0; r < rows; r++) {
+        tiles[c][r] = new Tile(c*20,r*20,20,materials[r]);
+      }
+    }
+      
+    /*try {
       Scanner s = new Scanner(saveFile);
       println("Map created");
       int c = 0;
@@ -33,7 +41,7 @@ public class Map {
     }
     catch (FileNotFoundException e) {
       System.out.println("The file don't exist");
-    }
+    }*/
   }
   
   public void display() {
