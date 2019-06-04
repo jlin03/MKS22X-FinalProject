@@ -92,7 +92,7 @@ void setup() {
   t.display();
   
   ls = new LevelSelect();
-  //ls.display();
+  ls.display();
   
   mode = "title";
 }
@@ -111,6 +111,7 @@ void draw() {
     t.display();
   }
   if (mode.equals("levelSelect") || mode.equals("levelEdit")) {
+    ls.update();
     ls.display();  
   }
   

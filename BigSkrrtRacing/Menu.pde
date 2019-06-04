@@ -59,7 +59,7 @@ class Menu {
       buttons.add(new Button("Save", "saveMap", 1133,866,130,56));
     }
     else if (type.equals("levelSelect")) {
-      File mapBoys = new File(sketchPath());
+      /*File mapBoys = new File(sketchPath());
       File[] mapFiles = mapBoys.listFiles(new FilenameFilter() {
         public boolean accept(File dir, String name) {
           return name.endsWith(".txt");
@@ -75,7 +75,7 @@ class Menu {
           xOffset += 400;
         }
         yOffset += 300;
-      }
+      }*/
     }
   }
   
@@ -109,8 +109,8 @@ class Menu {
       image(saveMap,x,y,(float)150/450*mapScale,(float)80/450*mapScale);
     }
     else if (type.equals("levelSelect")) {
-      imageMode(CORNER);
-      image(levelMenu,x,y,min(height,width),min(height,width));
+      imageMode(CENTER);
+      image(levelMenu,width/2,height/2,1200,900);
     }
     
     for(Clickable c : buttons) {

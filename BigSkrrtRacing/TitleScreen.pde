@@ -1,6 +1,5 @@
 class TitleScreen {
   Menu titleMenu;
-  Menu levelSelector;
   int timer;
   String selection;
   Map m;
@@ -11,7 +10,6 @@ class TitleScreen {
   public TitleScreen() {
     m = maps.get((int)random(maps.size()));
     titleMenu = new Menu("title",width/2,height/2);
-    levelSelector = new Menu("levelSelector",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     timer = 0;
     scale = 1;
     logoH = 5;
@@ -22,7 +20,7 @@ class TitleScreen {
   void update() {
     selection = titleMenu.open();
     if(selection != null && selection.equals("level")) {
-      mode = "level";
+      mode = "levelSelect";
     }
     if(selection != null && selection.equals("editor")) {
       mode = "editor";
