@@ -121,11 +121,11 @@ class Car {
 
   void display() {
     pushMatrix();
-      rectMode(CENTER);
+      imageMode(CENTER);
       fill(255,0,0);
       translate(pos.x,pos.y);
       rotate(angle);
-      rect(0,0,carLength,carWidth);
+      image(car,0,0,carLength,carWidth);
     popMatrix();
     fill(0);
     point(pos.x,pos.y);

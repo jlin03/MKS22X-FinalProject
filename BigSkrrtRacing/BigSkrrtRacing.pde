@@ -13,6 +13,8 @@ PImage winMenu;
 PImage button;
 PImage logo;
 
+PImage car;
+
 PImage grass,mud,water,road,goal,preGoal;
 
 PImage[] grassCorner = new PImage[4];
@@ -55,6 +57,7 @@ void setup() {
   winMenu = loadImage("winMenu.png");
   button = loadImage("button.png");
   logo = loadImage("logo.png");
+  car = loadImage("car.png");
   
   grass = loadImage("grass.png");
   mud = loadImage("mud.png");
