@@ -13,7 +13,7 @@ public class Map {
     }
   }
   
-  public Map(File saveFile) {
+  public Map(String saveFile) {
     rows = height / 20;
     cols = width / 20;
     tiles = new Tile[cols][rows];

@@ -89,8 +89,8 @@ class Editor {
     m.display();
   }
   
-  void preLoadMap(File saveFile) {
-     Map newMap = new Map(saveFile);
+  void preLoadMap(String path) {
+     Map newMap = new Map(path);
      maps.add(newMap);
   }
   
@@ -113,8 +113,7 @@ class Editor {
       }
       savedMap.flush();
       savedMap.close();
-      File savedMapFile = new File(filename);
-      preLoadMap(savedMapFile);
+      preLoadMap(sketchPath() + "\\" + filename);
     //}
    // catch (IOException e) {
    //   System.out.println("If you're reading this... may G-d help you");

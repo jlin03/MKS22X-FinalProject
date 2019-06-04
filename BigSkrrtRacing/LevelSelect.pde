@@ -18,8 +18,7 @@ class LevelSelect {
     if(selection != null && !willEditMap) {
       delay(300);
       println(sketchPath()+"\\"+selection+".txt");
-      File nextMap = new File(sketchPath()+"\\"+selection+".txt");
-      Map newMap = new Map(nextMap);
+      Map newMap = new Map(sketchPath()+"\\"+selection+".txt");
       maps.add(newMap);
       m = newMap;
       mode = "level";
@@ -28,8 +27,7 @@ class LevelSelect {
     if(selection != null && willEditMap) {
       delay(300);
       println(sketchPath()+"\\"+selection+".txt");
-      File nextMap = new File(sketchPath()+"\\"+selection+".txt");
-      Map newMap = new Map(nextMap);
+      Map newMap = new Map(sketchPath()+"\\"+selection+".txt");
       maps.add(newMap);
       m = newMap;
       mode = "editor";
