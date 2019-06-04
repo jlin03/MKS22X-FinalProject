@@ -2,9 +2,7 @@ class Car {
   float angle;
   PVector pos;
   PVector vel;
-  PVector accel;
   PVector force;
-  PVector fric;
   PVector momentum;
   boolean driving;
   boolean fwd;
@@ -15,13 +13,11 @@ class Car {
   float power;
   float max_force;
 
-  public Car(float a, float x, float y, float l, float w, float m, float p, float f) {
+  public Car(float a, float x, float y, float l, float w, float m, float p, float f) { //initializes a car at a set angle and position with a set size, mass, power, and max force capability
     angle = a;
     pos = new PVector(x, y);
     vel = new PVector(0, 0);
-    accel = new PVector(0, 0);
     force = new PVector(0.01, 0.01);
-    fric = new PVector(0.01,0.01);
     momentum = new PVector(0.01,0.01);
     driving = false;
     carLength = l;
@@ -32,16 +28,15 @@ class Car {
     max_force = f;
   }
 
-  void update(float k) {
+  void update(float k) {    //update the car position/angle and then display it
     updateVectors(k);
     display();
   }
   
   void updateVectors(float k) {
-    angle %= TWO_PI;
-    k *= mass;
-    fric.setMag(k*(float)Math.pow(vel.mag()/2,2));
-    if(driving) {
+    angle %= TWO_PI;            // keep the angle under 2PI
+    k *= mass;                  //multiply friction by the mass of the car
+    if(driving) {                      //if the car is driving, then slowly increase the engineOutput in a respective direction by a certain power constant for a smooth force transition
       if(fwd) {
         engineOutput = Math.min(1,engineOutput+power);
       }
@@ -49,9 +44,9 @@ class Car {
         engineOutput = Math.max(-1,engineOutput-power);
       }
       
-      momentum.add(force);
+      momentum.add(force);      //add the driving force to momentum
     }
-    else {
+    else {                             //if the car is not driving, then slowly bring the engineOutput to 0 using friction multiplied by some constants
       if(engineOutput < 0) {
         engineOutput = Math.min(0,engineOutput+(k*200/(carLength*carWidth)));
       }
@@ -60,22 +55,18 @@ class Car {
       }
     }
    
-    vel = momentum.copy().setMag(momentum.mag()/mass);
-    vel.limit(mass*10);
+    vel = momentum.copy().setMag(momentum.mag()/mass);    //copy the momentum vector and divide it by the car's mass. Then, assign it to be velocity
+    vel.limit(mass*10);                                   //limit the magnitude of velocity
 
     pos.add(vel);
     
-    momentum.setMag(Math.max(0,(float)(momentum.mag()-(k*mass*1.5))));
+    momentum.setMag(Math.max(0,(float)(momentum.mag()-(k*mass*1.5))));      //decrease momentum based on friction multipled by some constants
     
-    //if(vel.mag() > 2*k && force.mag() < 0.05) {
-    //  momentum.add(PVector.fromAngle(vel.heading()+PI,fric.copy()));
-    //}
-    
-    if(vel.mag() <= 2*k && force.mag() < 0.05) {
+    if(vel.mag() <= 2*k && force.mag() < 0.05) {                 //keep vel from drifting back and forth by making it 0 if it is miniscule
        vel.setMag(0.01);
     }
     
-    if(pos.y >= height || pos.y <= 0) {
+    if(pos.y >= height || pos.y <= 0) {                       //weave the car's position to be constrained in the map
       pos.y = Math.min(height-1,Math.abs(height-pos.y));
     }
     if(pos.x >= width || pos.x <= 0) {
@@ -83,11 +74,11 @@ class Car {
     }
   }
   
-  void brake() {
+  void brake() {                //decrease the engineOutput quickly
     engineOutput /= 2;
   }
   
-  void turn(float tireAngle, boolean right) {
+  void turn(float tireAngle, boolean right) {        //turn the car angle based on it's length, tireAngle, and magnitude of velocity
     if(vel.mag() > 0.1) {
       PVector temp = PVector.fromAngle(vel.heading()-angle+HALF_PI);
       temp.setMag(vel.mag());
@@ -101,7 +92,7 @@ class Car {
     }
   }
 
-  void drive(float s, boolean forwards) {
+  void drive(float s, boolean forwards) {          //set the car's force to be in the direction of driving, and to the magnitude of its max power * the engine output
     s *= mass;
     force.rotate(angle-force.heading());
     if (forwards) {
@@ -119,7 +110,7 @@ class Car {
     }
   }
 
-  void display() {
+  void display() {                          //draw the car based on its position and angle
     pushMatrix();
       imageMode(CENTER);
       fill(255,0,0);
