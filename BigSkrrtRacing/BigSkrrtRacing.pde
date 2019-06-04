@@ -81,6 +81,16 @@ void setup() {
   m = new Map();
   m.display();
   
+  File mapBoys = new File(sketchPath());
+      File[] mapFiles = mapBoys.listFiles(new FilenameFilter() {
+        public boolean accept(File dir, String name) {
+          return name.endsWith(".txt");
+        }
+      });
+  for (File f: mapFiles) {
+    maps.add(new Map(f.getName()));
+  }
+  
   maps.add(m);
   e = new Editor(m);
   
