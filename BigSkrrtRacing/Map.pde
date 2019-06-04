@@ -13,6 +13,10 @@ public class Map {
     }
   }
   
+  public Map(String saveFile) {
+    
+  }
+  
   public void display() {
     for (int c = 0; c < cols; c++) {
       for(int r = 0; r < rows; r++) {

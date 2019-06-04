@@ -84,9 +84,15 @@ class Editor {
     m.display();
   }
   
+  void initMap(String saveFile) {
+     Map newMap = new Map(saveFile);
+     maps.add(newMap);
+  }
+  
   void saveMap(String num) {
     //try {
-      savedMap = createWriter("Map-"+num+".txt");
+      String filename = "Map-"+num+".txt";
+      savedMap = createWriter(filename);
       String currentCol = "";
       for (Tile[] colo: m.tiles) {
         for (Tile t: colo) {
@@ -102,6 +108,7 @@ class Editor {
       }
       savedMap.flush();
       savedMap.close();
+      initMap(filename);
     //}
    // catch (IOException e) {
    //   System.out.println("If you're reading this... may G-d help you");
