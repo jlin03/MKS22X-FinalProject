@@ -48,7 +48,7 @@ class Editor {
     
     action = saveMap.open();
     if(action != null && action.equals("saveMap")) {
-      saveMap(Integer.toString(maps.size()));
+      saveMap(Integer.toString(maps.size()-1));
       textAlign(CENTER,CENTER);
       String saveMessage = "Saving...";
       text(saveMessage,50,50);
