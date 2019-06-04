@@ -10,14 +10,14 @@ class Editor {
   int mapNum;
   PrintWriter savedMap;
   
-  public Editor(Map _m) {
+  public Editor(Map _m) {      //creates the editor under a certain map, and creates a blockMenu to select tiles to build the map, a currentBlock menu to see the current block being used, and a saveMap menu to save the map.
     m = _m;
     blockMenu = new Menu("blockSelection",width/2-min(width/4,height/4),height/2-min(width/4,height/4));
     currentBlock = new Menu("currentBlock",0,height-(float)80/450*min(height/2,width/2));
     saveMap = new Menu("saveMap",1050,height-(float)80/450*min(height/2,width/2)); 
     toggleMenu = false;
-    substance = "grass";
-    current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));
+    substance = "grass";      //starts off with the default material of grass
+    current = new Tile((float)80/450*min(height/2,width/2),height-(float)58/450*min(height/2,width/2),(float)40/450*min(height/2,width/2));  //tile to be used to display the currentBlock
     stroke(0);
     textSize(20);
   }
@@ -26,11 +26,11 @@ class Editor {
     substance = s;
   }
   
-  void setTile(float x, float y, String mat) {
+  void setTile(float x, float y, String mat) {    //set a tile to be a certain material
     m.getTile(x,y).setMaterial(mat);
   }
   
-  void openMenu() {
+  void openMenu() {          //opens the tile selection menu
     substance = blockMenu.open();
   }
   
@@ -46,7 +46,7 @@ class Editor {
       current.display();
     }
     
-    action = saveMap.open();
+    action = saveMap.open();                                //keeps the save map menu open and executes a map save if pressed
     if(action != null && action.equals("saveMap")) {
       saveMap(Integer.toString(maps.size()-2));
       textAlign(CENTER,CENTER);
@@ -57,18 +57,18 @@ class Editor {
       println("saved");
     }
     
-    if(mousePressed && substance != null && !toggleMenu && !saveMap.buttons.get(0).isMouseOver()) {
+    if(mousePressed && substance != null && !toggleMenu && !saveMap.buttons.get(0).isMouseOver()) {          //if the mouse is pressed and the tile selection menu is not open, and the mouse is not clicking on save
       Tile selected = m.getTile(mX,mY);
       String[] layers = selected.material.split(",");
-      if((substance.contains("-c") || substance.contains("r-e")) && !layers[layers.length-1].equals(substance)) {
+      if((substance.contains("-c") || substance.contains("r-e")) && !layers[layers.length-1].equals(substance)) {  //if the substance a corner/railing and not a base building block, stack it ontop of the tile being edited
         setTile(mX,mY,m.getTile(mX,mY).material + "," + substance);
       }
-      else if(!(substance.contains("-c") || substance.contains("r-e")) && substance != null && !toggleMenu){
+      else if(!(substance.contains("-c") || substance.contains("r-e")) && substance != null && !toggleMenu){   // if the subtance is a base block, replace the tile selected with that block completely
         setTile(mX,mY,substance);
       }
       display();
     }
-    if(keyPressed) {
+    if(keyPressed) {                        //toggles the block selection menu with the 'm' key
       if(key == 'm' || key == 'M') {
         toggleMenu = !toggleMenu;
         display();
@@ -85,7 +85,7 @@ class Editor {
     }
   }
   
-  void display() {
+  void display() {      //displays the map
     m.display();
   }
   
