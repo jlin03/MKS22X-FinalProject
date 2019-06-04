@@ -17,7 +17,21 @@ class Level {
   }
   
   void initialize() {
-    player = new Car(0,400,400,50,25,1,0.2,3);
+    float[] startCoordinates = new float[2];
+    float angle = 0;
+    for(Tile[] tiles : m.tiles) {
+      for(Tile t : tiles) {
+        if (t.material.equals("goal-pre")) {
+          startCoordinates[0] = t.x;
+          startCoordinates[1] = t.y;
+        }
+        if (t.material.equals("goal")) {
+          angle = atan(t.y-startCoordinates[1]/t.x-startCoordinates[0]);
+        }
+      }
+    }
+    
+    player = new Car(angle,startCoordinates[0],startCoordinates[1],50,25,1,0.2,3);
     timer = 0;
     laps = 0;
     animVel = 0;
