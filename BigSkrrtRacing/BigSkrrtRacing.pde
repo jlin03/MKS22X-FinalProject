@@ -83,13 +83,10 @@ void setup() {
   
   maps.add(m);
   e = new Editor(m);
-  e.display();
   
   _l = new Level(m);
-  _l.display();
   
   t = new TitleScreen();
-  t.display();
   
   ls = new LevelSelect(false);
   ls.display();
@@ -111,8 +108,8 @@ void draw() {
     t.display();
   }
   if (mode.equals("levelSelect")) {
-    ls.update();
     ls.display();  
+    ls.update();
   }
 
 
