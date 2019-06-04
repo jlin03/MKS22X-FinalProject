@@ -14,7 +14,25 @@ public class Map {
   }
   
   public Map(String saveFile) {
-    
+    rows = height / 20;
+    cols = width / 20;
+    tiles = new Tile[cols][rows];
+    File file = new File(saveFile);
+    try {
+      Scanner s = new Scanner(file);
+      int c = 0;
+      while (s.hasNextLine()) {
+        String currentCol = s.nextLine();
+        String[] materials = currentCol.split(";");
+        for (int r = 0; r < materials.length; r++) {
+          tiles[c][r] = new Tile(c*20,r*20,20,materials[r]);  
+        }
+        c++;
+      }
+      s.close();  
+    }
+    catch (FileNotFoundException e) {
+    }
   }
   
   public void display() {

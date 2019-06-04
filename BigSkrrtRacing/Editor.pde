@@ -49,6 +49,11 @@ class Editor {
     action = saveMap.open();
     if(action != null && action.equals("saveMap")) {
       saveMap(Integer.toString(maps.size()));
+      textAlign(CENTER,CENTER);
+      String saveMessage = "Saving...";
+      text(saveMessage,50,50);
+      delay(1000);
+      saveMessage = "";
       println("saved");
     }
     
@@ -84,7 +89,7 @@ class Editor {
     m.display();
   }
   
-  void initMap(String saveFile) {
+  void preLoadMap(String saveFile) {
      Map newMap = new Map(saveFile);
      maps.add(newMap);
   }
@@ -108,7 +113,7 @@ class Editor {
       }
       savedMap.flush();
       savedMap.close();
-      initMap(filename);
+      preLoadMap(filename);
     //}
    // catch (IOException e) {
    //   System.out.println("If you're reading this... may G-d help you");
