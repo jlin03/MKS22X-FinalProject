@@ -66,15 +66,15 @@ class Menu {
         }
       });
       int mapInd = 0;
-      float yOffset = height/4.0;
+      float yOffset = 150;
       for (int i = 0; i < 6; i++) {
-        float xOffset = width/3.0;
+        float xOffset = 200;
         for (int j = 0; j < 3; j++) {
           String name = mapFiles[mapInd].getName();
           buttons.add(new Button(name.substring(0,name.length()-4),"loadmap",xOffset,yOffset,75,25));
-          xOffset += 100;
+          xOffset += 400;
         }
-        yOffset += 50;
+        yOffset += 300;
       }
     }
   }
