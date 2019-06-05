@@ -1,15 +1,15 @@
 class Level {
   Map m;
-  float timer;
+  float timer; //timer that holds a number
+  String time; //convert timer from seconds to a mm:ss:ms format
   int laps;
-  boolean onTrack;
+  boolean onTrack;  //checks if car is on the track
   Car player;
   Controls input;
   Menu winScreen;
-  int animVel;
-  String time;
-  float dangerTimer;
-  float goalTimer;
+  
+  float dangerTimer;  //counts how long the player has been on grass
+  float goalTimer;    //counts how long since the player has touched the goal
   
   public Level(Map _m) {
     m = _m;
@@ -18,7 +18,7 @@ class Level {
     initialize();
   }
   
-  void initialize() {
+  void initialize() {                      //starts the map and places the car on a pre goal, facing towards a goal
     float[] startCoordinates = new float[2];
     float angle = 0;
     int count = 0;
@@ -45,17 +45,16 @@ class Level {
     timer = 0;
     time = "100000";
     laps = 1;
-    animVel = 0;
     dangerTimer = 0;
     display();
   }
   
   void update() {
-    if(laps <= 3) {
-      Tile currentlyOn = m.getTile(player.pos.x,player.pos.y);
+    if(laps <= 3) {        //run the game if the course hasn't been completed three times yet
+      Tile currentlyOn = m.getTile(player.pos.x,player.pos.y);      //get the current tile the car is on
         
-      timer += (float)1/60;
-      input.update();
+      timer += (float)1/60;                  //add to the timer
+      input.update();                  //update the controls
       
       
       if(input.up == false && input.down == false) {
@@ -65,7 +64,7 @@ class Level {
         player.driving = true;
       }
       
-      if(input.hold) {
+      if(input.hold) {                //drive/turn based on player inputs
         if(input.up) {
           player.drive(currentlyOn.getStaticFriction(),true);
         }
@@ -80,44 +79,44 @@ class Level {
         }
       }
   
-      if(currentlyOn.material.contains("goal-pre") && onTrack && goalTimer < 0.1) {
+      if(currentlyOn.material.contains("goal-pre") && onTrack && goalTimer < 0.1) {          //getting onto the pre goal increases laps
         laps++;
         onTrack = false;
         goalTimer = 1;
       }
-      else if(currentlyOn.material.equals("goal") && onTrack) {
+      else if(currentlyOn.material.equals("goal") && onTrack) {                            //going backwards into the goal decreases laps(to prevent cheating)
         laps--;
         onTrack = false;
         goalTimer = 1;
       }
-      else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre") || currentlyOn.material.equals("grass"))) {
+      else if(!(currentlyOn.material.equals("goal") || currentlyOn.material.contains("goal-pre") || currentlyOn.material.equals("grass"))) { //checks if the player is not on grass or a goal, if so, they are on the track
         onTrack = true;
         dangerTimer = 0;
         goalTimer -= 1.0/60;
       }
-      else if(currentlyOn.material.equals("grass")) {
+      else if(currentlyOn.material.equals("grass")) {              //if the player is on grass, they have a split second grace period to get off or the level is restarted
         m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
         dangerTimer += 1.0/60;
         if(dangerTimer > 0.1 || goalTimer > 0.8) {
           initialize();
         }
       }
-      if(laps<1) {
+      if(laps<1) {      //prevent negative laps
         initialize();
       }
       
-      m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2)));
+      m.update(player.pos.x,player.pos.y,(float)Math.sqrt(Math.pow(player.carLength,2)+Math.pow(player.carWidth,2))); //update a regin of the map based on the player and scoreboard position
       m.update(width,0,120);
       player.update(currentlyOn.getKineticFriction());
       player.display();
       
-      time = int(timer/60)+":";
+      time = int(timer/60)+":";       //converts the timer to a more recognizable format
       if(((int)timer%60) < 10) {
         time += "0";
       }
       time += ((int)timer%60)+":"+(int)((timer%1)*10000);
       
-      textSize(20);
+      textSize(20);                      //displays the time and laps
       textAlign(LEFT);
       text(time,width-100,20);
       text("Lap "+laps,width-50,40);
@@ -128,7 +127,7 @@ class Level {
     
   }
   
-  void trackComplete() {
+  void trackComplete() {          //displays the winscreen menu and shows the player's time to complete the track
     winScreen.display();
     textAlign(CENTER);
     fill(0);
