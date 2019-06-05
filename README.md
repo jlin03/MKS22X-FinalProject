@@ -1,3 +1,27 @@
+BIG $KRRT RACING - The Physics Based Racing Game You've All Been Waiting for 
+
+Welcome to Big Skrrt Racing! This is a physics based racing game that is based around time trials. There are a couple of pre-made tracks for you to play, and the game also includes a fully complete track editor which you can use to create and save tracks of your own! There are many different types of terrain, so watch out! We really didn't call this game BIG SKRRT for nothing. 
+
+Instructions:
+Run BigSkrrtRacing.pde in processing to start the game.
+From the title screen you can play or create a track
+At any time, you can pause the game by pressing tilde ---> ~
+In the pause menu you can retry the current track or go back to the title screen.
+
+Play Instructions:
+Starting from the yellow and travelling around to the black checkered pattern, you must complete three laps around the track. How fast can you win the race?
+Use the arrow keys to steer and drive the car around the track.
+
+Editor Instructions:
+All tracks must have at least one checkered yellow tile(starting spawn) and one black(goal). Each checkered tiletype should only be placed in one contiguous strip or block, and the two blocks should be touching each other as well as touching the grass on 2 sides(to prevent blatant cheating).
+Use your mouse to place tiles on the map
+The menu in the botton left hand corner shows what tile material you currently have selected
+Press 'm' to open the material selection menu
+Click save on the bottom right to place a savefile of your track in the game directory for play
+
+
+
+Devlog:
 5/20/19 - created repo;setup basic things
 
 5/21/19 - In conjunction: coded PolarVector class; tested accessors and vector manipulation methods
@@ -24,10 +48,14 @@ Jerry: did some more momentum and angle tuning for the car; drew all the tile pi
 5/30/19 - Jerry: completed most parts of editor including a block selection menu and a map to be edited.
 Ben: Tested initial structure of editor, made changes to better integrate Tile and Map with the new modular editor class instead of hard coded map information
 
+5/31/19 - Ben: Used filewriter to create initial saveMap method in the editor, debugging said method
+
 6/1/19 - Jerry: added a current block tab on editor as an extra touch, added a new goal block and allowed it to be selected, the block selection menu is now generalized to any screen size, ported over controls from the main class into a separate controls class, started making the level class.
 
 6/2/19 - Jerry: made it so that tiles can have as many stacks of textures placed on them as the map maker desires, added more tile types to be used to build the map, 90% completed the level class which is where the actual game takes place(need to work on the winning menu), created the title menu for intuitive transition between different parts of the game, tried to implement collision(failed);will try again if i have time. 
 
-6/3/19 - Jerry: made the title screen and game level somewhat more presentable
+6/3/19 - Jerry: made the title screen and game level somewhat more presentable, changed save from FileWriter to CreateWriter
+Ben: Made new menu in editor with Save button to quickly store maps, debugged save considerably, created new Map constructor in order to import stored savefiles, created new levelSelect mode for loading maps ingame using GUI
 
 6/4/19 - Jerry: created the pause and win menus, adjusted the car and level to be more playable, cleaned up some code and fixed some display bugs
+Ben: Fixed map loading bug, new image resources for levelMenu and levelButton to distinguish from Editor, created levelSelect screen with variable buttons for each of the extant map files in game folder, edited levelSelect to properly choose between editor and level
