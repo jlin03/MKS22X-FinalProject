@@ -74,4 +74,4 @@ This is a physics based racing game that is based around time trials. There are 
 
 * 6/4/19 
   * Jerry: created the pause and win menus, adjusted the car and level to be more playable, cleaned up some code and fixed some display bugs
-  * Ben: Fixed map loading bug, new image resources for levelMenu and levelButton to distinguish from Editor, created levelSelect screen with variable buttons for each of the extant map files in game folder, edited levelSelect to properly choose between editor and level
+  * Ben: Fixed map loading bug, new image resources for levelMenu and levelButton to distinguish from Editor, created levelSelect screen with variable buttons for each of the extant map files in game folder, edited levelSelect to properly choose between editor and level (and removed ability to play in lawn), created a default map for the game
