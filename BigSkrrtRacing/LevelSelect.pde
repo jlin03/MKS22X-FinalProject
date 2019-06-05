@@ -15,7 +15,7 @@ class LevelSelect { //level select screen
   
   void update() {
     selection = levelSelect.open();
-    if(selection != null && !willEditMap) {
+    if(selection != null && !selection.equals("Lawn") && !willEditMap) {
       delay(300); //QoL improvement
       println(sketchPath()+"\\"+selection+".txt"); //prints file path, useful for debugging
       Map newMap = new Map(sketchPath()+"\\"+selection+".txt"); //gets map from file
