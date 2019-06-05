@@ -1,4 +1,4 @@
- 5/20/19 - created repo;setup basic things
+5/20/19 - created repo;setup basic things
 
 5/21/19 - In conjunction: coded PolarVector class; tested accessors and vector manipulation methods
 
@@ -29,3 +29,5 @@ Ben: Tested initial structure of editor, made changes to better integrate Tile a
 6/2/19 - Jerry: made it so that tiles can have as many stacks of textures placed on them as the map maker desires, added more tile types to be used to build the map, 90% completed the level class which is where the actual game takes place(need to work on the winning menu), created the title menu for intuitive transition between different parts of the game, tried to implement collision(failed);will try again if i have time. 
 
 6/3/19 - Jerry: made the title screen and game level somewhat more presentable
+
+6/4/19 - Jerry: created the pause and win menus, adjusted the car and level to be more playable, cleaned up some code and fixed some display bugs
