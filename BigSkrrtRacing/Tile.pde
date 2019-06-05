@@ -14,7 +14,7 @@ public class Tile implements Clickable{
     setMaterial(m);
   }
   
-  public void setMaterial (String m) {
+  public void setMaterial (String m) { //sets the friction values of the tile and creates an arraylist of layers to display the block
     layers = new ArrayList<PImage>();
     material = m;
     if (material.equals("road") || material.contains("road-painted-") || material.contains("road-edge-") || material.contains("road-corner-") || material.equals("goal") || material.equals("goal-pre")) {
@@ -36,14 +36,14 @@ public class Tile implements Clickable{
     assignMaterial();
     
   }
-  public void display() {
+  public void display() {                //displays all layers stacked on top of one another
     imageMode(CORNER);
     for(PImage layer : layers) {
       image(layer,x,y,size,size);
     }
   } 
   
-  void assignMaterial() {
+  void assignMaterial() {                          //adds layers to the arraylist of layers by splitting the material and adding for each
     String[] parts = material.split(",");
     for(String mat : parts) {
       if (mat.equals("road")) {
@@ -93,7 +93,7 @@ public class Tile implements Clickable{
     
   }
   
-  boolean isMouseOver() {
+  boolean isMouseOver() {            //checks if the mouse is over the tile
     return(mouseX>x && mouseX<x+size && mouseY>y && mouseY<y+size);
   }
   
