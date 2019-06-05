@@ -89,31 +89,31 @@ class Editor {
     m.display();
   }
   
-  void preLoadMap(String path) {
+  void preLoadMap(String path) { //takes filepath to import saved mapfile into game
      Map newMap = new Map(path);
      maps.add(newMap);
   }
   
-  void saveMap(String num) {
+  void saveMap(String num) { //saves map to .txt file and imports it into game
     //try {
-      String filename = "Map-"+num+".txt";
-      savedMap = createWriter(filename);
-      String currentCol = "";
-      for (Tile[] colo: m.tiles) {
-        for (Tile t: colo) {
-          currentCol += t.material;
+      String filename = "Map-"+num+".txt"; //num is ultimately derived from the number of maps in the folder, next in line
+      savedMap = createWriter(filename); //writes to file
+      String currentCol = ""; //string variable for column, useful when reading column by column
+      for (Tile[] colo: m.tiles) { //takes current map and goes column by column
+        for (Tile t: colo) { //each tile in col
+          currentCol += t.material; //string is appended with material string
           if ((t.y)/20 < colo.length-1) {
-            currentCol += ";";
+            currentCol += ";"; //delimiter
           }
           else {
             savedMap.println(currentCol); //each row of txt file represents one column of map data
-            currentCol = "";
+            currentCol = ""; //reset
           }
         }
       }
       savedMap.flush();
       savedMap.close();
-      preLoadMap(sketchPath() + "\\" + filename);
+      preLoadMap(sketchPath() + "\\" + filename); //load map into game
     //}
    // catch (IOException e) {
    //   System.out.println("If you're reading this... may G-d help you");
