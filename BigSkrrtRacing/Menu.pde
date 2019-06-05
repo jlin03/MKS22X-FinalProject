@@ -1,8 +1,8 @@
 class Menu {
-  String type;
-  String selection;
-  float x,y;
-  ArrayList<Clickable> buttons;
+  String type;        //the type of the menu, determines the buttons and the menu background
+  String selection;   //the button selection, used to relay the button action information
+  float x,y;          //position of the menu
+  ArrayList<Clickable> buttons;    //arraylist of all the buttons in the menu
   float mapScale;
   
   public Menu(String t,float _x, float _y) {
@@ -20,7 +20,7 @@ class Menu {
     
     float sideLength = (float)36/450*mapScale;
     
-    if(type.equals("blockSelection")) {
+    if(type.equals("blockSelection")) {                                  //adds all the buttons for each respective menu, all formatted to fit on the menu properly
       buttons.add(new Tile(x+initDistX,y+initDistY,sideLength,"grass"));
       buttons.add(new Tile(x+initDistX+distScale,y+initDistY,sideLength,"mud"));
       buttons.add(new Tile(x+initDistX+(distScale*2),y+initDistY,sideLength,"water"));
@@ -88,7 +88,7 @@ class Menu {
   }
   
   
-  String open() {
+  String open() {                        //displays the men and checks if any of the buttons are pressed and returns the action, if not, null is returned
     display();
     for(Clickable c : buttons) {
       if(c.isMouseOver() && mousePressed) {
@@ -100,7 +100,7 @@ class Menu {
     return temp;
   }
   
-  void display() {
+  void display() {                        //displays a different menu background depending on its type
     if(type.equals("blockSelection")) {
       imageMode(CORNER);
       image(blockSelection,x,y,min(height/2,width/2),min(height/2,width/2));   
