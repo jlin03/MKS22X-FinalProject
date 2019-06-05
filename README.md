@@ -1,19 +1,19 @@
 # BIG $KRRT RACING
 
-##Welcome to Big Skrrt Racing!
+## Welcome to Big Skrrt Racing!
 This is a physics based racing game that is based around time trials. There are a couple of pre-made tracks for you to play, and the game also includes a fully complete track editor which you can use to create and save tracks of your own! There are many different types of terrain, so watch out! We really didn't call this game BIG SKRRT for nothing. 
 
-##Instructions:
+## Instructions:
 1. Run BigSkrrtRacing.pde in processing to start the game.
 2. From the title screen you can play or create a track
 3. At any time, you can pause the game by pressing tilde ---> **~**
 4. In the pause menu you can retry the current track or go back to the title screen.
 
-##Play Instructions:
+## Play Instructions:
 1. Starting from the yellow and travelling around to the black checkered pattern, you must complete **three** laps around the track. How fast can you win the race?
 2. Use the arrow keys to steer and drive the car around the track. Don't hit the grass or you'll be **cast back to the start!**
 
-##Editor Instructions:
+## Editor Instructions:
 1. All tracks **must** have at least one checkered yellow tile(starting spawn) and one black(goal). Each checkered tiletype should only be placed in one contiguous strip or block, and the two blocks should be touching each other as well as touching the grass on 2 sides(to prevent blatant cheating).
 2. Use your mouse to place tiles on the map
 3. The menu in the botton left hand corner shows what tile material you currently have selected
@@ -22,7 +22,7 @@ This is a physics based racing game that is based around time trials. There are 
 
 
 
-##Devlog:
+## Devlog:
 * 5/20/19 
 ..* created repo;setup basic things
 
