@@ -130,6 +130,7 @@ class Level {
   void trackComplete() {          //displays the winscreen menu and shows the player's time to complete the track
     winScreen.display();
     textAlign(CENTER);
+    textSize(20);
     fill(0);
     text("Congratulations! Press pause(~) to go back. You beat the level in:\n\n            " + time,width/2,height/2-150,100);
     
