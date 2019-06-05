@@ -131,7 +131,7 @@ class Level {
     winScreen.display();
     textAlign(CENTER);
     fill(0);
-    text("Congratulations! You beat the level in:\n\n            " + time,width/2,height/2-150,100);
+    text("Congratulations! Press pause(~) to go back. You beat the level in:\n\n            " + time,width/2,height/2-150,100);
     
   }
   
