@@ -113,7 +113,7 @@ class Editor {
       }
       savedMap.flush();
       savedMap.close();
-      preLoadMap(sketchPath() + "\\" + filename); //load map into game
+      preLoadMap(sketchPath() + "/" + filename); //load map into game
     //}
    // catch (IOException e) {
    //   System.out.println("If you're reading this... may G-d help you");

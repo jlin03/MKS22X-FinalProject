@@ -17,8 +17,8 @@ class LevelSelect { //level select screen
     selection = levelSelect.open();
     if(selection != null && !selection.equals("Lawn") && !willEditMap) {
       delay(300); //QoL improvement
-      println(sketchPath()+"\\"+selection+".txt"); //prints file path, useful for debugging
-      Map newMap = new Map(sketchPath()+"\\"+selection+".txt"); //gets map from file
+      println(sketchPath()+"/"+selection+".txt"); //prints file path, useful for debugging
+      Map newMap = new Map(sketchPath()+"/"+selection+".txt"); //gets map from file
       maps.add(newMap); //adds to game array of maps
       m = newMap; //sets current map to selected map
       mode = "level"; //!willEditMap
@@ -26,8 +26,8 @@ class LevelSelect { //level select screen
     }
     if(selection != null && willEditMap) {
       delay(300);
-      println(sketchPath()+"\\"+selection+".txt");
-      Map newMap = new Map(sketchPath()+"\\"+selection+".txt");
+      println(sketchPath()+"/"+selection+".txt");
+      Map newMap = new Map(sketchPath()+"/"+selection+".txt");
       maps.add(newMap);
       m = newMap;
       mode = "editor"; //willEditmap
